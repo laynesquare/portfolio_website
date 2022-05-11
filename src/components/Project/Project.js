@@ -1,4 +1,6 @@
 import { Container, Typography, Box, Divider, Grid, Chip } from '@mui/material';
+import React from 'react';
+import FeatureList from './FeatureList';
 
 const Project = () => {
   return (
@@ -9,29 +11,15 @@ const Project = () => {
         </Typography>
       </Divider>
 
-      <Grid container justifyContent="center" spacing={3} padding={2}>
-        <Grid item xs={6}>
+      <Grid container justifyContent="center" spacing={5} padding={3}>
+        <Grid item xs={12}>
           <Typography variant="h3">01.</Typography>
-          <Typography variant="h5">Share your memories</Typography>
-
-          <Typography variant="h7" sx={{}}>
-            Overview
-          </Typography>
-
-          <Typography
-            sx={{
-              textAlign: 'justify',
-              fontSize: '1rem',
-              fontFamily: 'Montserrat',
-            }}
-          >
-            Create a platform where people could share treasured memories in
-            their lives with anyone out there throughout the globe.
-          </Typography>
+          <Typography variant="h3">Share your memories | Full stack</Typography>
+          <FeatureList />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12}>
           <Box
-            sx={{ width: '100%', height: '100%', backgroundColor: 'red' }}
+            sx={{ width: '100px', height: '100px', backgroundColor: 'red' }}
           ></Box>
         </Grid>
       </Grid>

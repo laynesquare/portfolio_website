@@ -95,7 +95,6 @@ const Hero = () => {
           mt: `${80 + windowDimenion.winWidth / 16}px`,
           fontSize: '8rem',
           lineHeight: '.8',
-
           textShadow: '0px 0px 10px rgba(50,,0,0.5)',
           zIndex: '-1',
         }}

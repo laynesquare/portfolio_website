@@ -36,7 +36,7 @@ export const mainTheme = createTheme({
   },
 
   typography: {
-    fontFamily: 'Syncopate',
+    fontFamily: 'Roboto Slab',
   },
 
   palette: {
