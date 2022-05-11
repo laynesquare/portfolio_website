@@ -1,24 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar/Navbar';
+import Hero from './components/Hero/Hero';
+import About from './components/About/About';
+import Project from './components/Project/Project';
+import Contact from './components/Contact/Contact';
+import Sidebar from './components/Sidebar/Sidebar';
+import { Container } from '@mui/material';
 
 function App() {
+  const nice = 'yes';
+  console.log(nice);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Sidebar />
+      <Navbar />
+      <Hero />
+      <About />
+      <Project />
+      <Contact />
+      <Container maxWidth="lg">the bottom</Container>
+    </>
   );
 }
 
