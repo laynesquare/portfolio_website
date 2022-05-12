@@ -13,8 +13,9 @@ body {
 
 }
 
+
 .logo_animation{
-  animation: logo_animation 10s infinite linear;
+  /* animation: logo_animation 10s infinite linear; */
 }
 
 /* width */

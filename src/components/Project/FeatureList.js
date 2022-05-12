@@ -6,9 +6,35 @@ import {
   ListItem,
   ListItemText,
   ListItemAvatar,
+  Grid,
 } from '@mui/material';
 
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+
+const TechStackIcon = (props) => (
+  <Grid item>
+    <Typography
+      {...props}
+      component="div"
+      color="theme.palette.primary.light"
+      sx={iconEffect}
+      gutterBottom
+    />
+  </Grid>
+);
+
+const iconEffect = {
+  transition: 'all 0.3s ease-in-out',
+  boxShadow:
+    'inset -2px -2px 6px rgba(255, 255, 255, .5), inset -2px -2px 4px rgba(255, 255, 255, .01),inset 2px 2px 2px rgba(255, 255, 255, .075),inset 2px 2px 4px rgba(0, 0, 0, .15)',
+  p: '0.5rem 1rem',
+  borderRadius: '0.5rem',
+
+  '&:hover': {
+    boxShadow:
+      '-2px -2px 6px rgba(255, 255, 255, .6), -2px -2px 4px rgba(255, 255, 255, .4),    2px 2px 2px rgba(255, 255, 255, .05),    2px 2px 4px rgba(0, 0, 0, .1)',
+  },
+};
 
 const listStyle = {
   secondary: {
@@ -29,6 +55,13 @@ const textForMemProject = {
     "With the account, you can not only create, delete, and edit your posts but also give a thumbs up to other users' posts.",
     'Incorporation of jsonwebtoken and bcryptjs libraries allows for authorization and authentication.',
   ],
+
+  techStack: {
+    lan: [],
+    fe: [],
+    be: [],
+    others: [],
+  },
 
   workingsOutline: [
     'Account registration data will be sent to the backend via the HTTP POST request method with the REST API routes.',
@@ -57,16 +90,14 @@ const FeatureList = () => {
         </ListItemAvatar>
         <ListItemText
           primary={
-            <React.Fragment>
-              <Typography
-                variant="h4"
-                component="div"
-                color="theme.palette.primary.light"
-                gutterBottom
-              >
-                Overview
-              </Typography>
-            </React.Fragment>
+            <Typography
+              variant="h4"
+              component="div"
+              color="theme.palette.primary.light"
+              gutterBottom
+            >
+              Overview
+            </Typography>
           }
           secondary={textForMemProject.overview.map((text, index) => (
             <Typography
@@ -82,6 +113,86 @@ const FeatureList = () => {
           ))}
         />
       </ListItem>
+
+      {/* Tech Stack */}
+      {/* Tech Stack */}
+      {/* Tech Stack */}
+      {/* Tech Stack */}
+      {/* Tech Stack */}
+      {/* Tech Stack */}
+      {/* Tech Stack */}
+      <ListItem
+        alignItems="flex-start"
+        sx={{ '&:hover': { '.arrow': { transform: '' } } }}
+      >
+        <ListItemAvatar>
+          <Avatar className="arrow" sx={{ backgroundColor: '#123b38' }}>
+            <ArrowRightIcon sx={{ fontSize: '2rem' }} />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText
+          primary={
+            <React.Fragment>
+              <Typography
+                variant="h4"
+                component="div"
+                color="theme.palette.primary.light"
+                gutterBottom
+              >
+                Tech Stack
+              </Typography>
+            </React.Fragment>
+          }
+          secondary={<></>}
+        />
+      </ListItem>
+
+      <Grid container spacing={2} mb={2} justifyContent="center">
+        <TechStackIcon>Javascript</TechStackIcon>
+        <TechStackIcon>HTML</TechStackIcon>
+        <TechStackIcon>CSS</TechStackIcon>
+      </Grid>
+      <Grid container spacing={2} mb={2} justifyContent="center">
+        <TechStackIcon>React (hooks)</TechStackIcon>
+        <TechStackIcon>React Router Dom</TechStackIcon>
+        <TechStackIcon>React Redux</TechStackIcon>
+        <TechStackIcon>Material UI</TechStackIcon>
+      </Grid>
+      <Grid container spacing={2} mb={2} justifyContent="center">
+        <TechStackIcon>Node.js</TechStackIcon>
+        <TechStackIcon>Express</TechStackIcon>
+        <TechStackIcon>Mongoose</TechStackIcon>
+        <TechStackIcon>MongoDB</TechStackIcon>
+        <TechStackIcon>REST API</TechStackIcon>
+      </Grid>
+      <Grid container spacing={2} justifyContent="center">
+        <TechStackIcon>Axios</TechStackIcon>
+        <TechStackIcon>jsonwebtoken</TechStackIcon>
+        <TechStackIcon>bcryptjs</TechStackIcon>
+        <TechStackIcon>Netifly</TechStackIcon>
+        <TechStackIcon>Heroku</TechStackIcon>
+        <Grid item sx={{ transition: 'ease-in' }}>
+          <Typography
+            component="div"
+            color="theme.palette.primary.light"
+            sx={{
+              transition: 'all 3s ease-in-out',
+              boxShadow:
+                'inset -2px -2px 6px rgba(255, 255, 255, .5), inset -2px -2px 4px rgba(255, 255, 255, .01),inset 2px 2px 2px rgba(255, 255, 255, .075),inset 2px 2px 4px rgba(0, 0, 0, .15)',
+              p: '0.5rem 1rem',
+              borderRadius: '0.5rem',
+
+              '&:hover': {
+                boxShadow:
+                  '-2px -2px 6px rgba(255, 255, 255, .6), -2px -2px 4px rgba(255, 255, 255, .4), 2px 2px 2px rgba(255, 255, 255, .05), 2px 2px 4px rgba(0, 0, 0, .1)',
+              },
+            }}
+            gutterBottom
+          >
+            123
+          </Typography>
+        </Grid>
+      </Grid>
 
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
