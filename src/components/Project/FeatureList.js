@@ -15,8 +15,9 @@ const TechStackIcon = (props) => (
   <Grid item>
     <Typography
       {...props}
-      component="div"
+      component="span"
       color="theme.palette.primary.light"
+      variant="body2"
       sx={iconEffect}
       gutterBottom
     />
@@ -24,26 +25,25 @@ const TechStackIcon = (props) => (
 );
 
 const iconEffect = {
+  display: 'inline-block',
   transition: 'all 0.3s ease-in-out',
-  boxShadow:
-    'inset -2px -2px 6px rgba(255, 255, 255, .5), inset -2px -2px 4px rgba(255, 255, 255, .01),inset 2px 2px 2px rgba(255, 255, 255, .075),inset 2px 2px 4px rgba(0, 0, 0, .15)',
+  boxShadow: 'inset 4px 4px 9px #898989,  inset -4px -4px 9px #f7f4f4',
   p: '0.5rem 1rem',
   borderRadius: '0.5rem',
-
+  overflow: 'hidden',
   '&:hover': {
-    boxShadow:
-      '-2px -2px 6px rgba(255, 255, 255, .6), -2px -2px 4px rgba(255, 255, 255, .4),    2px 2px 2px rgba(255, 255, 255, .05),    2px 2px 4px rgba(0, 0, 0, .1)',
+    boxShadow: ' 3px 3px 5px #898989,   -3px -3px 5px #edeaea',
   },
 };
 
 const listStyle = {
   secondary: {
     display: 'block',
-    pl: '1.5rem',
+    pl: '1.7rem',
     '&::before': {
-      content: '"— "',
+      content: '"-"',
       position: 'absolute',
-      transform: 'translateX(-1rem)',
+      transform: 'translateX(-1.2rem)',
     },
   },
 };
@@ -57,10 +57,10 @@ const textForMemProject = {
   ],
 
   techStack: {
-    lan: [],
-    fe: [],
-    be: [],
-    others: [],
+    lan: ['Javascript', 'HTML', 'CSS'],
+    fe: ['React (hooks)', 'React Router Dom', 'React Redux', 'Material UI'],
+    be: ['Node.js', 'Express', 'Mongoose', 'MongoDB', 'REST API'],
+    others: ['Axios', 'jsonwebtoken', 'bcryptjs', 'Netifly', 'Heroku'],
   },
 
   workingsOutline: [
@@ -74,162 +74,241 @@ const textForMemProject = {
   ],
 };
 
-const FeatureList = () => {
+const textForEngProject = {
+  overview: [
+    'Solve the inconvenience of encountering unknown words upon reading an English passage and having to look up elsewhere.',
+    'Read multiple professional-written passages fetched via New York Times API with a juxtaposed dictionary to facilitate English learning.',
+    'Responsive design fitting for all mobile devices.',
+  ],
+  techStack: {
+    lan: ['Javascript', 'HTML', 'CSS'],
+    fe: ['React (hooks)', 'React Redux', 'Material UI'],
+    be: ['Node.js', 'Express'],
+    others: ['Axios', 'Netifly', 'Heroku'],
+  },
+  workingsOutline: [
+    'The input search keyword will serve as the value to the property name of searchTerm, which corresponds to the URL specification for the New York Times API.',
+    'The fetched passages, along with the images coming with the texts, will be shown in the main display panel.',
+    "Every word within the given passages is clickable. Once it's clicked, another HTTP GET request will be sent with the intended word serving as the URL parameter for the Free Dictionary API.",
+    "All the fetched data through NTY and Free Dictionary APIs are stored in the Redux's state container, after which, dependent upon different scenarios, respective React components are allowed to make use of the handled data.",
+  ],
+};
+
+const FeatureList = ({ whichProject }) => {
   return (
     <List sx={{ width: '100%' }}>
       {/* Mem Project */}
       {/* Mem Project */}
       {/* Mem Project */}
       {/* Mem Project */}
-
-      <ListItem alignItems="flex-start">
-        <ListItemAvatar>
-          <Avatar sx={{ backgroundColor: '#123b38' }}>
-            <ArrowRightIcon sx={{ fontSize: '2rem' }} />
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText
-          primary={
-            <Typography
-              variant="h4"
-              component="div"
-              color="theme.palette.primary.light"
-              gutterBottom
+      {/* Mem Project */}
+      {/* {whichProject === 'Mem' && ( */}
+      <>
+        <ListItem alignItems="flex-start">
+          <ListItemAvatar>
+            <Avatar
+              sx={{
+                backgroundColor: '#123b38',
+                height: '1.9rem',
+                width: '1.9rem',
+              }}
             >
-              Overview
-            </Typography>
-          }
-          secondary={textForMemProject.overview.map((text, index) => (
-            <Typography
-              sx={listStyle.secondary}
-              component="div"
-              variant="body1"
-              color="theme.palette.primary.light"
-              gutterBottom
-              key={index}
-            >
-              {text}
-            </Typography>
-          ))}
-        />
-      </ListItem>
-
-      {/* Tech Stack */}
-      {/* Tech Stack */}
-      {/* Tech Stack */}
-      {/* Tech Stack */}
-      {/* Tech Stack */}
-      {/* Tech Stack */}
-      {/* Tech Stack */}
-      <ListItem
-        alignItems="flex-start"
-        sx={{ '&:hover': { '.arrow': { transform: '' } } }}
-      >
-        <ListItemAvatar>
-          <Avatar className="arrow" sx={{ backgroundColor: '#123b38' }}>
-            <ArrowRightIcon sx={{ fontSize: '2rem' }} />
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText
-          primary={
-            <React.Fragment>
+              <ArrowRightIcon sx={{ fontSize: '2rem' }} />
+            </Avatar>
+          </ListItemAvatar>
+          <ListItemText
+            primary={
               <Typography
-                variant="h4"
-                component="div"
+                variant="h5"
+                component="span"
                 color="theme.palette.primary.light"
-                gutterBottom
+              >
+                Overview
+              </Typography>
+            }
+            secondary={
+              whichProject === 'Mem'
+                ? textForMemProject.overview.map((text, index) => (
+                    <Typography
+                      sx={listStyle.secondary}
+                      component="span"
+                      variant="body2"
+                      color="theme.palette.primary.light"
+                      gutterBottom
+                      key={index}
+                      mt={1}
+                    >
+                      {text}
+                    </Typography>
+                  ))
+                : textForEngProject.overview.map((text, index) => (
+                    <Typography
+                      sx={listStyle.secondary}
+                      component="span"
+                      variant="body2"
+                      color="theme.palette.primary.light"
+                      gutterBottom
+                      key={index}
+                      mt={1}
+                    >
+                      {text}
+                    </Typography>
+                  ))
+            }
+          />
+        </ListItem>
+        <ListItem
+          alignItems="flex-start"
+          sx={{ '&:hover': { '.arrow': { transform: '' } }, mb: '1rem' }}
+        >
+          <ListItemAvatar>
+            <Avatar
+              className="arrow"
+              sx={{
+                backgroundColor: '#123b38',
+                height: '1.9rem',
+                width: '1.9rem',
+              }}
+            >
+              <ArrowRightIcon sx={{ fontSize: '2rem' }} />
+            </Avatar>
+          </ListItemAvatar>
+          <ListItemText
+            primary={
+              <Typography
+                variant="h5"
+                component="span"
+                color="theme.palette.primary.light"
               >
                 Tech Stack
               </Typography>
-            </React.Fragment>
-          }
-          secondary={<></>}
-        />
-      </ListItem>
+            }
+            secondary=" "
+          />
+        </ListItem>
+        {/* Tech Stack */}
+        {/* Tech Stack */}
+        {/* Tech Stack */}
+        {/* Tech Stack */}
+        {/* Tech Stack */}
+        {/* Tech Stack */}
+        {/* Tech Stack */}
+        {/* Tech Stack */}
+        {whichProject === 'Mem' && (
+          <>
+            <Grid container spacing={2} mb={2} justifyContent="center">
+              {textForMemProject.techStack.lan.map((text, index) => (
+                <TechStackIcon key={index}>{text}</TechStackIcon>
+              ))}
+            </Grid>
+            <Grid container spacing={2} mb={2} justifyContent="center">
+              {textForMemProject.techStack.fe.map((text, index) => (
+                <TechStackIcon key={index}>{text}</TechStackIcon>
+              ))}
+            </Grid>
+            <Grid container spacing={2} mb={2} justifyContent="center">
+              {textForMemProject.techStack.be.map((text, index) => (
+                <TechStackIcon key={index}>{text}</TechStackIcon>
+              ))}
+            </Grid>
+            <Grid container spacing={2} mb={2} justifyContent="center">
+              {textForMemProject.techStack.others.map((text, index) => (
+                <TechStackIcon key={index}>{text}</TechStackIcon>
+              ))}
+            </Grid>
+          </>
+        )}
 
-      <Grid container spacing={2} mb={2} justifyContent="center">
-        <TechStackIcon>Javascript</TechStackIcon>
-        <TechStackIcon>HTML</TechStackIcon>
-        <TechStackIcon>CSS</TechStackIcon>
-      </Grid>
-      <Grid container spacing={2} mb={2} justifyContent="center">
-        <TechStackIcon>React (hooks)</TechStackIcon>
-        <TechStackIcon>React Router Dom</TechStackIcon>
-        <TechStackIcon>React Redux</TechStackIcon>
-        <TechStackIcon>Material UI</TechStackIcon>
-      </Grid>
-      <Grid container spacing={2} mb={2} justifyContent="center">
-        <TechStackIcon>Node.js</TechStackIcon>
-        <TechStackIcon>Express</TechStackIcon>
-        <TechStackIcon>Mongoose</TechStackIcon>
-        <TechStackIcon>MongoDB</TechStackIcon>
-        <TechStackIcon>REST API</TechStackIcon>
-      </Grid>
-      <Grid container spacing={2} justifyContent="center">
-        <TechStackIcon>Axios</TechStackIcon>
-        <TechStackIcon>jsonwebtoken</TechStackIcon>
-        <TechStackIcon>bcryptjs</TechStackIcon>
-        <TechStackIcon>Netifly</TechStackIcon>
-        <TechStackIcon>Heroku</TechStackIcon>
-        <Grid item sx={{ transition: 'ease-in' }}>
-          <Typography
-            component="div"
-            color="theme.palette.primary.light"
-            sx={{
-              transition: 'all 3s ease-in-out',
-              boxShadow:
-                'inset -2px -2px 6px rgba(255, 255, 255, .5), inset -2px -2px 4px rgba(255, 255, 255, .01),inset 2px 2px 2px rgba(255, 255, 255, .075),inset 2px 2px 4px rgba(0, 0, 0, .15)',
-              p: '0.5rem 1rem',
-              borderRadius: '0.5rem',
+        {whichProject === 'Eng' && (
+          <>
+            <Grid container spacing={2} mb={2} justifyContent="center">
+              {textForEngProject.techStack.lan.map((text, index) => (
+                <TechStackIcon key={index}>{text}</TechStackIcon>
+              ))}
+            </Grid>
+            <Grid container spacing={2} mb={2} justifyContent="center">
+              {textForEngProject.techStack.fe.map((text, index) => (
+                <TechStackIcon key={index}>{text}</TechStackIcon>
+              ))}
+            </Grid>
+            <Grid container spacing={2} mb={2} justifyContent="center">
+              {textForEngProject.techStack.be.map((text, index) => (
+                <TechStackIcon key={index}>{text}</TechStackIcon>
+              ))}
+            </Grid>
+            <Grid container spacing={2} mb={2} justifyContent="center">
+              {textForEngProject.techStack.others.map((text, index) => (
+                <TechStackIcon key={index}>{text}</TechStackIcon>
+              ))}
+            </Grid>
+          </>
+        )}
 
-              '&:hover': {
-                boxShadow:
-                  '-2px -2px 6px rgba(255, 255, 255, .6), -2px -2px 4px rgba(255, 255, 255, .4), 2px 2px 2px rgba(255, 255, 255, .05), 2px 2px 4px rgba(0, 0, 0, .1)',
-              },
-            }}
-            gutterBottom
-          >
-            123
-          </Typography>
-        </Grid>
-      </Grid>
-
-      <ListItem alignItems="flex-start">
-        <ListItemAvatar>
-          <Avatar sx={{ backgroundColor: '#123b38' }}>
-            <ArrowRightIcon sx={{ fontSize: '2rem' }} />
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText
-          primary={
-            <Typography
-              variant="h4"
-              component="div"
-              color="theme.palette.primary.light"
-              gutterBottom
+        {/* Working Outline */}
+        {/* Working Outline */}
+        {/* Working Outline */}
+        {/* Working Outline */}
+        {/* Working Outline */}
+        {/* Working Outline */}
+        {/* Working Outline */}
+        {/* Working Outline */}
+        <ListItem alignItems="flex-start">
+          <ListItemAvatar>
+            <Avatar
+              sx={{
+                backgroundColor: '#123b38',
+                height: '1.9rem',
+                width: '1.9rem',
+              }}
             >
-              Workings Outline
-            </Typography>
-          }
-          secondary={textForMemProject.workingsOutline.map((text, index) => (
-            <Typography
-              sx={listStyle.secondary}
-              component="div"
-              variant="body1"
-              color="theme.palette.primary.light"
-              gutterBottom
-              key={index}
-            >
-              {text}
-            </Typography>
-          ))}
-        />
-      </ListItem>
-
-      {/* Mem Project */}
-      {/* Mem Project */}
-      {/* Mem Project */}
-      {/* Mem Project */}
+              <ArrowRightIcon sx={{ fontSize: '2rem' }} />
+            </Avatar>
+          </ListItemAvatar>
+          <ListItemText
+            primary={
+              <Typography
+                variant="h5"
+                component="span"
+                color="theme.palette.primary.light"
+                gutterBottom
+              >
+                Workings Outline
+              </Typography>
+            }
+            secondary={
+              whichProject === 'Mem'
+                ? textForMemProject.workingsOutline.map((text, index) => (
+                    <Typography
+                      sx={listStyle.secondary}
+                      component="span"
+                      variant="body2"
+                      color="theme.palette.primary.light"
+                      key={index}
+                      mt={1}
+                    >
+                      {text}
+                    </Typography>
+                  ))
+                : textForEngProject.workingsOutline.map((text, index) => (
+                    <Typography
+                      sx={listStyle.secondary}
+                      component="span"
+                      variant="body2"
+                      color="theme.palette.primary.light"
+                      key={index}
+                      mt={1}
+                    >
+                      {text}
+                    </Typography>
+                  ))
+            }
+          />
+        </ListItem>
+      </>
+      {/* Eng Project */}
+      {/* Eng Project */}
+      {/* Eng Project */}
+      {/* Eng Project */}
     </List>
   );
 };

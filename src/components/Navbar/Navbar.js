@@ -1,15 +1,6 @@
 import React from 'react';
-import {
-  Container,
-  Typography,
-  AppBar,
-  Box,
-  Toolbar,
-  Button,
-  Grid,
-} from '@mui/material';
+import { Container, AppBar, Box, Toolbar } from '@mui/material';
 import { default as officialLogo } from '../../assets/imgs/official_logo.svg';
-import { ThemeContext } from '@emotion/react';
 
 const Navbar = () => {
   return (
@@ -19,8 +10,8 @@ const Navbar = () => {
           <Toolbar sx={{ display: 'flex', flexDirection: 'column' }}>
             <Box
               sx={{
-                minHeight: '20rem',
-                minWidth: '20rem',
+                minHeight: '15rem',
+                minWidth: '15rem',
                 display: 'flex',
                 justifyContent: 'center',
                 mt: '2rem',

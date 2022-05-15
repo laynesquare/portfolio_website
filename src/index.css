@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Slab&family=Rubik&family=Syncopate:wght@700&family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat&family=Roboto+Slab&family=Rubik&family=Syncopate:wght@700&family=Ubuntu&display=swap');
 
 body {
   margin: 0;
@@ -9,13 +9,26 @@ body {
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
   overflow-x: hidden;
+  /* background-image: url(./assets/imgs/background.png);
+  background-size: 100%; */
 
 
 }
 
+/* .hero-bg{
+  background-image: url(./assets/imgs/background.png);
+  background-size: 100%;
+} */
+
+
+
+.project_title{
+animation: contentSurfacing 2s;
+}
+
 
 .logo_animation{
-  /* animation: logo_animation 10s infinite linear; */
+  animation: logo_animation 10s infinite linear;
 }
 
 /* width */
@@ -45,6 +58,20 @@ body {
 
   100% {
     transform: rotate(359deg);
+
+  }
+}
+
+@keyframes contentSurfacing {
+  0% {
+    opacity: 0 ;
+    /* transform: translate(0, -100px); */
+
+  }
+
+  100% {
+    /* transform: translate(0, 0px); */
+    opacity: 100%;
 
   }
 }

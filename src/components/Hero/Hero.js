@@ -1,23 +1,28 @@
-import { Container, Typography, Box, Grow } from '@mui/material';
+import { Box, Grow, AppBar, Toolbar } from '@mui/material';
+import { default as officialLogo } from '../../assets/imgs/official_logo.svg';
+
 import { useState, useEffect, useRef } from 'react';
 import { useMediaQuery } from '@mui/material';
 
 const style = {
   line: {
     width: '100vw',
+    textShadow: ' 3px 3px 5px #898989,   -3px -3px 5px #edeaea',
   },
 
   left: {
     width: '50vw',
     display: 'inline-block',
-    color: '#1E625D',
-    transform: 'skew(0deg, -15deg)',
+    color: '#CDCDCD',
+
+    // transform: 'skew(0deg, -15deg)',
     overflow: 'hidden',
   },
 
   leftContent: {
     width: '100vw',
     textAlign: 'center',
+    color: 'gradient(rgba(188,37,103,1) 0%, rgba(101,47,141,1) 100%)',
   },
 
   leftSpan: {
@@ -30,7 +35,9 @@ const style = {
     width: '50vw',
     display: 'inline-block',
     overflow: 'hidden',
-    transform: ' skew(0deg, 15deg)',
+    color: '#CDCDCD',
+
+    // transform: ' skew(0deg, 15deg)',
   },
 
   rightContent: {
@@ -43,7 +50,7 @@ const style = {
     display: 'inline-block',
     transition: 'ease-out .6s',
     lineHeight: '.8',
-    textDecoration: 'underline',
+    // textDecoration: 'underline',
   },
 };
 
@@ -89,14 +96,43 @@ const Hero = () => {
   window.addEventListener('mousemove', handleMouseMove);
 
   return (
-    <Grow in>
+    <Box className="hero-bg" sx={{ height: '100vh' }}>
       <Box
         sx={{
-          mt: `${80 + windowDimenion.winWidth / 16}px`,
-          fontSize: '8rem',
-          lineHeight: '.8',
-          textShadow: '0px 0px 10px rgba(50,,0,0.5)',
-          zIndex: '-1',
+          component: 'img',
+          position: 'absolute',
+          minWidth: '30vh',
+          maxWidth: '30vh',
+          top: '10%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          display: 'block',
+          margin: 'auto',
+          pointerEvents: 'none',
+          p: '1rem',
+          boxShadow: ' 3px 3px 5px #898989,   -3px -3px 5px #edeaea',
+          borderRadius: '50%',
+
+          // backgroundColor: 'red',
+        }}
+      >
+        <Box
+          component={'img'}
+          className="logo_animation"
+          src={officialLogo}
+          alt="logo"
+        ></Box>
+      </Box>
+
+      <Box
+        sx={{
+          position: 'absolute',
+
+          top: '45%',
+
+          border: ' 5px solid #CDCDCD',
+          fontSize: '7.5vw',
+          lineHeight: '0.9',
         }}
       >
         {/* LINE1 */}
@@ -118,7 +154,7 @@ const Hero = () => {
                 className="spanSlow"
                 sx={style.leftSpan}
               >
-                Hi, I'm Layne,
+                HI, I'M LAYNE,
               </Box>
             </Box>
           </Box>
@@ -133,7 +169,7 @@ const Hero = () => {
                 }}
                 sx={style.rightSpan}
               >
-                Hi, I'm Layne,
+                HI, I'M LAYNE,
               </Box>
             </Box>
           </Box>
@@ -156,7 +192,7 @@ const Hero = () => {
                 className="spanSlow"
                 sx={style.leftSpan}
               >
-                a web developer
+                A WEB
               </Box>
             </Box>
           </Box>
@@ -171,7 +207,7 @@ const Hero = () => {
                 }}
                 sx={style.rightSpan}
               >
-                a web developer
+                A WEB
               </Box>
             </Box>
           </Box>
@@ -193,7 +229,7 @@ const Hero = () => {
                 className="spanSlow"
                 sx={style.leftSpan}
               >
-                Welcome
+                DEVELOPER.
               </Box>
             </Box>
           </Box>
@@ -208,13 +244,13 @@ const Hero = () => {
                 }}
                 sx={style.rightSpan}
               >
-                Welcome
+                DEVELOPER.
               </Box>
             </Box>
           </Box>
         </Box>
       </Box>
-    </Grow>
+    </Box>
   );
 };
 
