@@ -1,11 +1,12 @@
 import { Box, Typography } from '@mui/material';
 import { mainTheme } from '../../themes/mainTheme';
+import Technologies from './Technologies';
 
 const About = () => {
   return (
     <Box
       sx={{
-        maxidth: '75%',
+        width: '75%',
         m: 'auto auto',
 
         maxWidth: '1536px',
@@ -23,7 +24,7 @@ const About = () => {
       >
         ＃About
       </Typography>
-      <Box sx={{ maxWidth: '80%', display: 'block', m: 'auto' }}>
+      <Box sx={{ display: 'block', m: 'auto' }}>
         <Typography sx={{ mb: '1rem' }}>
           Hello, my name is Layne Chen, and I am a self-taught web developer.
         </Typography>
@@ -43,6 +44,8 @@ const About = () => {
           website entails. Hence, I start my self-taught journey.
         </Typography>
       </Box>
+
+      <Technologies />
     </Box>
   );
 };

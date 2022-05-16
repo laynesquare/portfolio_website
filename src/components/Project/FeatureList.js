@@ -58,9 +58,9 @@ const textForMemProject = {
 
   techStack: {
     lan: ['Javascript', 'HTML', 'CSS'],
-    fe: ['React (hooks)', 'React Router Dom', 'React Redux', 'Material UI'],
+    fe: ['React (hooks)', 'React Router', 'React Redux', 'Material UI'],
     be: ['Node.js', 'Express', 'Mongoose', 'MongoDB', 'REST API'],
-    others: ['Axios', 'jsonwebtoken', 'bcryptjs', 'Netifly', 'Heroku'],
+    others: ['Axios', 'jsonwebtoken', 'bcryptjs', 'Netlify', 'Heroku'],
   },
 
   workingsOutline: [
@@ -84,7 +84,7 @@ const textForEngProject = {
     lan: ['Javascript', 'HTML', 'CSS'],
     fe: ['React (hooks)', 'React Redux', 'Material UI'],
     be: ['Node.js', 'Express'],
-    others: ['Axios', 'Netifly', 'Heroku'],
+    others: ['Axios', 'Netlify', 'Heroku'],
   },
   workingsOutline: [
     'The input search keyword will serve as the value to the property name of searchTerm, which corresponds to the URL specification for the New York Times API.',
