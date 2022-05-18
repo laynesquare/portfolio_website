@@ -4,6 +4,30 @@ import FeatureList from './FeatureList';
 import memory_preview from '../../assets/imgs/preview_share_your_memories.png';
 import english_preview from '../../assets/imgs/preview_learn_english_with_dictionary.png';
 
+const demoCodeBtnStyle = {
+  position: 'relative',
+  p: '0.5rem 1rem',
+
+  color: mainTheme.palette.primary.main,
+  borderRadius: '1rem',
+  cursor: 'pointer',
+  textDecoration: 'none',
+  transition: 'all .2s ease-in-out',
+  mr: '1rem',
+  boxShadow: ' 4px 4px 8px #898989, -4px -4px 8px #edeaea',
+
+  '&:active': {
+    boxShadow: 'inset 4px 4px 8px #898989, inset -4px -4px 8px #edeaea',
+  },
+
+  '&:hover': {
+    boxShadow: '2px 2px 4px #898989, -2px -2px 4px #edeaea',
+    '&:active': {
+      boxShadow: 'inset 2px 2px 4px #898989, inset -2px -2px 4px #edeaea',
+    },
+  },
+};
+
 const Project = () => {
   return (
     <Box
@@ -14,17 +38,6 @@ const Project = () => {
         maxWidth: '1536px',
       }}
     >
-      {/* <Box
-        component={'div'}
-        sx={{
-          width: '100%',
-          height: '5px',
-          // backgroundColor: 'green',
-          mb: '2rem',
-          boxShadow: 'inset 1px 1px 2px #898989,  inset -1px -1px 2px #f7f4f4',
-          borderRadius: '0.5rem',
-        }}
-      ></Box> */}
       <Typography
         variant="h2"
         textAlign={'center'}
@@ -43,7 +56,13 @@ const Project = () => {
         spacing={5}
         padding={3}
       >
-        <Grid item xs={12}>
+        <Grid
+          item
+          xs={12}
+          sx={{
+            textShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
+          }}
+        >
           <Typography variant="h3">01.</Typography>
           <Typography variant="h4" sx={{ mb: '3rem' }}>
             Share your memories | Full stack
@@ -56,26 +75,6 @@ const Project = () => {
               maxWidth: '700px',
               borderRadius: '1rem',
               mb: '3rem',
-              // boxShadow:
-              //   'inset 1px 1px 2px #898989,  inset -1px -1px 2px #f7f4f4',
-
-              // '&:hover': {
-              //   '&:before': {
-              //     transform: 'translate(0%, 0%)',
-              //   },
-              // },
-
-              // '&:before': {
-              //   content: '""',
-              //   width: '100%',
-              //   height: '100%',
-              //   background: mainTheme.palette.primary.light,
-              //   transform: 'translate(2%, 2.5%)',
-              //   borderRadius: '1rem',
-              //   position: 'absolute',
-              //   zIndex: '-1',
-              //   transition: 'all .5s ease-in-out',
-              // },
             }}
           >
             <Box
@@ -90,10 +89,6 @@ const Project = () => {
                 border: ' 5px solid #CDCDCD',
 
                 transition: 'all .2s ease-in-out',
-
-                // '&:hover': {
-                //   transform: 'translate(2%,2%)',
-                // },
               }}
             ></Box>
           </Box>
@@ -111,58 +106,30 @@ const Project = () => {
             <Tooltip
               title="Lazy login is now offered, if you are meant to just explore a little."
               placement="left"
+              enterDelay={0}
             >
               <Box
                 component={'a'}
                 href="http://www.shareyourmemories.com"
-                sx={{
-                  position: 'relative',
-                  p: '0.5rem 1rem',
-                  background: mainTheme.palette.primary.main,
-                  color: mainTheme.palette.background.default,
-                  borderRadius: '1rem',
-                  cursor: 'pointer',
-                  textDecoration: 'none',
-                  transition: 'all .2s ease-in-out',
-                  mr: '1rem',
-                  boxShadow: ' 6px 6px 10px #898989,   -6px -6px 10px #edeaea',
-
-                  '&:hover': {
-                    background: mainTheme.palette.primary.dark,
-                    transform: 'translateY(-2px)',
-                  },
-                }}
+                sx={demoCodeBtnStyle}
               >
                 DEMO
               </Box>
             </Tooltip>
 
-            <Box
-              sx={{
-                background: mainTheme.palette.primary.main,
-
-                p: '0.5rem 1rem',
-                color: mainTheme.palette.background.default,
-                borderRadius: '1rem',
-
-                cursor: 'pointer',
-                transition: 'all .2s ease-in-out',
-                boxShadow: ' 6px 6px 10px #898989,   -6px -6px 10px #edeaea',
-
-                '&:hover': {
-                  background: mainTheme.palette.primary.dark,
-                  transform: 'translateY(-2px)',
-                },
-              }}
-            >
-              CODE
-            </Box>
+            <Box sx={demoCodeBtnStyle}>CODE</Box>
           </Grid>
 
           <FeatureList whichProject={`Mem`} />
         </Grid>
 
-        <Grid item xs={12}>
+        <Grid
+          item
+          xs={12}
+          sx={{
+            textShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
+          }}
+        >
           <Typography variant="h3">02.</Typography>
           <Typography variant="h4" sx={{ mb: '3rem' }}>
             Learn English with Dictionary | Frontend
@@ -175,24 +142,6 @@ const Project = () => {
               maxWidth: '700px',
               borderRadius: '1rem',
               mb: '3rem',
-
-              // '&:hover': {
-              //   '&:before': {
-              //     transform: 'translate(0%, 0%)',
-              //   },
-              // },
-
-              // '&:before': {
-              //   content: '""',
-              //   width: '100%',
-              //   height: '100%',
-              //   background: mainTheme.palette.primary.light,
-              //   transform: 'translate(2%, 2.5%)',
-              //   borderRadius: '1rem',
-              //   position: 'absolute',
-              //   zIndex: '-1',
-              //   transition: 'all .5s ease-in-out',
-              // },
             }}
           >
             <Box
@@ -206,10 +155,6 @@ const Project = () => {
                 boxShadow: ' 6px 6px 10px #898989,   -6px -6px 10px #fcfcfc',
                 border: ' 5px solid #CDCDCD',
                 transition: 'all .2s ease-in-out',
-
-                // '&:hover': {
-                //   transform: 'translate(2%,2%)',
-                // },
               }}
             ></Box>
           </Box>
@@ -227,47 +172,12 @@ const Project = () => {
             <Box
               component={'a'}
               href="http://www.shareyourmemories.com"
-              sx={{
-                p: '0.5rem 1rem',
-                background: mainTheme.palette.primary.main,
-                color: mainTheme.palette.background.default,
-                borderRadius: '1rem',
-                cursor: 'pointer',
-                textDecoration: 'none',
-                transition: 'all .2s ease-in-out',
-                mr: '1rem',
-                fontSize: '16px',
-                boxShadow: ' 6px 6px 10px #898989,   -6px -6px 10px #edeaea',
-
-                '&:hover': {
-                  background: mainTheme.palette.primary.dark,
-                  transform: 'translateY(-2px)',
-                },
-              }}
+              sx={demoCodeBtnStyle}
             >
               DEMO
             </Box>
 
-            <Box
-              sx={{
-                background: mainTheme.palette.primary.main,
-
-                p: '0.5rem 1rem',
-                color: mainTheme.palette.background.default,
-                borderRadius: '1rem',
-                cursor: 'pointer',
-                transition: 'all .2s ease-in-out',
-                mr: '1rem',
-                boxShadow: ' 6px 6px 10px #898989,   -6px -6px 10px #edeaea',
-
-                '&:hover': {
-                  background: mainTheme.palette.primary.dark,
-                  transform: 'translateY(-2px)',
-                },
-              }}
-            >
-              CODE
-            </Box>
+            <Box sx={demoCodeBtnStyle}>CODE</Box>
           </Grid>
 
           <FeatureList whichProject="Eng" />

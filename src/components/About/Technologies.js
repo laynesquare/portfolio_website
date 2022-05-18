@@ -18,6 +18,10 @@ import { default as webpackLogo } from '../../assets/imgs/webpack-icon.svg';
 import { default as netlifyLogo } from '../../assets/imgs/netlify-icon.svg';
 import { default as herokuLogo } from '../../assets/imgs/heroku-icon.svg';
 
+import { default as photoshopLogo } from '../../assets/imgs/Adobe_Photoshop_CC_icon.svg';
+
+import { default as illustratorLogo } from '../../assets/imgs/Adobe_Illustrator_CC_icon.svg';
+
 import { Typography, Box, Grid } from '@mui/material';
 import { mainTheme } from '../../themes/mainTheme';
 
@@ -40,6 +44,9 @@ const techIcons = [
   { logo: webpackLogo, name: 'Webpack' },
   { logo: netlifyLogo, name: 'Netlify' },
   { logo: herokuLogo, name: 'Heroku' },
+
+  { logo: photoshopLogo, name: 'Photoshop' },
+  { logo: illustratorLogo, name: 'Illustrator' },
 ];
 
 const Technologies = () => {
@@ -50,7 +57,7 @@ const Technologies = () => {
         sx={{
           display: 'flex',
           justifyContent: 'space-around',
-          alignItems: 'center',
+          alignItems: 'flex-end',
           //   pointerEvents: 'none',
           //   background: 'red',
         }}
@@ -69,6 +76,7 @@ const Technologies = () => {
               minWidth: '100px',
               maxWidth: '150px',
               m: '1rem',
+              transition: 'all 0.3s ease-in-out',
 
               // [`@media (max-width: ${mainTheme.breakpoints.md}px)`]: {
               '&:hover': {

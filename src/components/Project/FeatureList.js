@@ -27,10 +27,11 @@ const TechStackIcon = (props) => (
 const iconEffect = {
   display: 'inline-block',
   transition: 'all 0.3s ease-in-out',
-  boxShadow: 'inset 4px 4px 9px #898989,  inset -4px -4px 9px #f7f4f4',
+  boxShadow: 'inset 3px 3px 6px #898989,  inset -3px -3px 6px #f7f4f4',
   p: '0.5rem 1rem',
   borderRadius: '0.5rem',
   overflow: 'hidden',
+
   '&:hover': {
     boxShadow: ' 3px 3px 5px #898989,   -3px -3px 5px #edeaea',
   },
@@ -111,6 +112,7 @@ const FeatureList = ({ whichProject }) => {
                 backgroundColor: '#123b38',
                 height: '1.9rem',
                 width: '1.9rem',
+                boxShadow: ' 2px 2px 4px #898989,   -2px -2px 4px #f7f4f4',
               }}
             >
               <ArrowRightIcon sx={{ fontSize: '2rem' }} />
@@ -168,6 +170,7 @@ const FeatureList = ({ whichProject }) => {
                 backgroundColor: '#123b38',
                 height: '1.9rem',
                 width: '1.9rem',
+                boxShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
               }}
             >
               <ArrowRightIcon sx={{ fontSize: '2rem' }} />
@@ -259,6 +262,7 @@ const FeatureList = ({ whichProject }) => {
                 backgroundColor: '#123b38',
                 height: '1.9rem',
                 width: '1.9rem',
+                boxShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
               }}
             >
               <ArrowRightIcon sx={{ fontSize: '2rem' }} />

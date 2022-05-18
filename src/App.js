@@ -19,7 +19,7 @@ function App() {
       <Hero />
       <About />
       <Project />
-      {/* <Contact /> */}
+      <Contact />
       {/* <Container maxWidth="lg">the bottom</Container> */}
     </>
   );

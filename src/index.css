@@ -20,6 +20,16 @@ body {
   background-size: 100%;
 } */
 
+#avatar_body{
+  animation: avatar_body_animation 2s infinite;
+  transform-origin: bottom;
+ }
+
+ #avatar_head{
+  animation: avatar_body_animation 2.5s infinite;
+  transform-origin: top;
+ }
+
 
 
 .project_title{
@@ -51,13 +61,68 @@ animation: contentSurfacing 2s;
   background: #1F625E; 
 }
 
+@keyframes avatar_body_animation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-5deg);
+
+  }
+
+  50% {
+    transform: rotate(5deg);
+
+  }
+
+  75% {
+    transform: rotate(-5deg);
+
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes avatar_head_animation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-5deg);
+
+  }
+
+  50% {
+    transform: rotate(5deg);
+
+  }
+
+  75% {
+    transform: rotate(-5deg);
+
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+
+
 @keyframes logo_animation {
   0% {
     transform: rotate(0deg) ;
+    /* transform-origin: top right; */
   }
 
   100% {
     transform: rotate(359deg);
+    /* transform-origin: top right; */
+
 
   }
 }
