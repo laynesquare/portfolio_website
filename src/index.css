@@ -9,16 +9,83 @@ body {
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
   overflow-x: hidden;
-  /* background-image: url(./assets/imgs/background.png);
-  background-size: 100%; */
-
 
 }
 
-/* .hero-bg{
-  background-image: url(./assets/imgs/background.png);
-  background-size: 100%;
-} */
+
+#carrier_arm1{
+  animation: carrier_arm_animation 2s infinite;
+  transform-origin: left;
+}
+
+#carrier_arm2{
+  animation: carrier_arm_animation 3s infinite;
+  transform-origin: left;
+}
+
+#mail{
+  animation: carrier_mail_animation 10s ease-in-out infinite;
+  transform-origin: top;
+  transform: scale(0.7);
+
+}
+
+@keyframes carrier_arm_animation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-2deg);
+
+  }
+
+  50% {
+    transform: rotate(2deg);
+
+  }
+
+  75% {
+    transform: rotate(-3deg);
+
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes carrier_mail_animation {
+  0% {
+    transform: rotate(0deg);
+
+  }
+
+  25% {
+    transform: rotate(-2deg);
+
+  }
+
+  50% {
+    transform: rotate(2deg);
+
+  }
+
+  75% {
+    transform: rotate(-3deg);
+
+  }
+
+  100% {
+    transform: rotate(0deg);
+
+
+  }
+}
+
+
+
+
 
 #avatar_body{
   animation: avatar_body_animation 2s infinite;

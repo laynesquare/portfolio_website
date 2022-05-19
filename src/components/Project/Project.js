@@ -1,4 +1,4 @@
-import { Typography, Box, Divider, Grid, Chip, Tooltip } from '@mui/material';
+import { Typography, Box, Grid, Tooltip } from '@mui/material';
 import { mainTheme } from '../../themes/mainTheme';
 import FeatureList from './FeatureList';
 import memory_preview from '../../assets/imgs/preview_share_your_memories.png';

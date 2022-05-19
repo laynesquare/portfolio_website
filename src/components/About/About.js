@@ -9,6 +9,8 @@ const About = () => {
 
   return (
     <Box
+      onMouseEnter={() => setAboutAvatarMan(true)}
+      onMouseLeave={() => setAboutAvatarMan(false)}
       sx={{
         width: '75%',
         m: 'auto auto',
@@ -37,8 +39,6 @@ const About = () => {
         }}
       >
         <Box
-          onMouseEnter={() => setAboutAvatarMan(true)}
-          onMouseLeave={() => setAboutAvatarMan(false)}
           sx={{
             flexBasis: '100%',
             // bgcolor: 'red',

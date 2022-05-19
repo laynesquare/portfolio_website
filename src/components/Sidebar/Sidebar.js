@@ -6,7 +6,7 @@ const Sidebar = () => {
   return (
     <>
       <div>
-        <Box
+        {/* <Box
           sx={{
             minHeight: '2rem',
             minWidth: '2rem',
@@ -18,7 +18,7 @@ const Sidebar = () => {
           }}
         >
           <img src={symbol} alt="decor_symbol"></img>
-        </Box>
+        </Box> */}
         <Grid
           container
           justifyContent="center"
@@ -35,6 +35,17 @@ const Sidebar = () => {
           }}
           backgroundColor="primary"
         >
+          <Box
+            sx={{
+              width: '5px',
+              height: '25%',
+              bgcolor: 'red',
+              boxShadow:
+                'inset 2px 2px 4px #898989, inset -2px -2px px #edeaea',
+              borderRadius: '1rem',
+            }}
+          ></Box>
+
           <Grid item>About</Grid>
           <Grid item sx={{ mt: '1rem' }}>
             Project
@@ -45,7 +56,18 @@ const Sidebar = () => {
           <Grid item sx={{ mt: '1rem' }}>
             Contact
           </Grid>
+          <Box
+            sx={{
+              width: '5px',
+              height: '25%',
+              // bgcolor: 'red',
+              boxShadow:
+                'inset 4px 4px 8px #898989, inset -4px -4px 8px #edeaea',
+              borderRadius: '1rem',
+            }}
+          ></Box>
         </Grid>
+
         <Box
           sx={{
             minHeight: '2rem',
