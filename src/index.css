@@ -9,12 +9,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
   overflow-x: hidden;
+  background-image: url(./assets/imgs/background3.png);
+
+background-size: 100% ;
+
 
 }
 
 
 #carrier_arm1{
-  animation: carrier_arm_animation 2s infinite;
+  animation: carrier_arm_animation 2s infinite ;
   transform-origin: left;
 }
 
@@ -90,6 +94,9 @@ body {
 #avatar_body{
   animation: avatar_body_animation 2s infinite;
   transform-origin: bottom;
+shape-rendering: geometricPrecision;
+
+  
  }
 
  #avatar_head{
@@ -99,18 +106,16 @@ body {
 
 
 
-.project_title{
-animation: contentSurfacing 2s;
-}
+
 
 
 .logo_animation{
   animation: logo_animation 10s infinite linear;
 }
 
-/* width */
+
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 0.5em;
 } 
 
 /* Track */
@@ -121,6 +126,8 @@ animation: contentSurfacing 2s;
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #123B38; 
+/* box-shadow:  2px 2px 4px #898989,  -2px -2px 4px #edeaea; */
+
 }
 
 /* Handle on hover */

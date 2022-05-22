@@ -7,6 +7,7 @@ import {
   ListItemText,
   ListItemAvatar,
   Grid,
+  useMediaQuery,
 } from '@mui/material';
 
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
@@ -96,6 +97,8 @@ const textForEngProject = {
 };
 
 const FeatureList = ({ whichProject }) => {
+  const isMobile = useMediaQuery('(max-width:600px)');
+
   return (
     <List sx={{ width: '100%' }}>
       {/* Mem Project */}
@@ -106,18 +109,21 @@ const FeatureList = ({ whichProject }) => {
       {/* {whichProject === 'Mem' && ( */}
       <>
         <ListItem alignItems="flex-start">
-          <ListItemAvatar>
-            <Avatar
-              sx={{
-                backgroundColor: '#123b38',
-                height: '1.9rem',
-                width: '1.9rem',
-                boxShadow: ' 2px 2px 4px #898989,   -2px -2px 4px #f7f4f4',
-              }}
-            >
-              <ArrowRightIcon sx={{ fontSize: '2rem' }} />
-            </Avatar>
-          </ListItemAvatar>
+          {!isMobile && (
+            <ListItemAvatar>
+              <Avatar
+                sx={{
+                  backgroundColor: '#123b38',
+                  height: '1.9rem',
+                  width: '1.9rem',
+                  boxShadow: ' 2px 2px 4px #898989,   -2px -2px 4px #f7f4f4',
+                }}
+              >
+                <ArrowRightIcon sx={{ fontSize: '2rem' }} />
+              </Avatar>
+            </ListItemAvatar>
+          )}
+
           <ListItemText
             primary={
               <Typography
@@ -163,19 +169,22 @@ const FeatureList = ({ whichProject }) => {
           alignItems="flex-start"
           sx={{ '&:hover': { '.arrow': { transform: '' } }, mb: '1rem' }}
         >
-          <ListItemAvatar>
-            <Avatar
-              className="arrow"
-              sx={{
-                backgroundColor: '#123b38',
-                height: '1.9rem',
-                width: '1.9rem',
-                boxShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
-              }}
-            >
-              <ArrowRightIcon sx={{ fontSize: '2rem' }} />
-            </Avatar>
-          </ListItemAvatar>
+          {!isMobile && (
+            <ListItemAvatar>
+              <Avatar
+                className="arrow"
+                sx={{
+                  backgroundColor: '#123b38',
+                  height: '1.9rem',
+                  width: '1.9rem',
+                  boxShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
+                }}
+              >
+                <ArrowRightIcon sx={{ fontSize: '2rem' }} />
+              </Avatar>
+            </ListItemAvatar>
+          )}
+
           <ListItemText
             primary={
               <Typography
@@ -256,18 +265,21 @@ const FeatureList = ({ whichProject }) => {
         {/* Working Outline */}
         {/* Working Outline */}
         <ListItem alignItems="flex-start">
-          <ListItemAvatar>
-            <Avatar
-              sx={{
-                backgroundColor: '#123b38',
-                height: '1.9rem',
-                width: '1.9rem',
-                boxShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
-              }}
-            >
-              <ArrowRightIcon sx={{ fontSize: '2rem' }} />
-            </Avatar>
-          </ListItemAvatar>
+          {!isMobile && (
+            <ListItemAvatar>
+              <Avatar
+                sx={{
+                  backgroundColor: '#123b38',
+                  height: '1.9rem',
+                  width: '1.9rem',
+                  boxShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
+                }}
+              >
+                <ArrowRightIcon sx={{ fontSize: '2rem' }} />
+              </Avatar>
+            </ListItemAvatar>
+          )}
+
           <ListItemText
             primary={
               <Typography

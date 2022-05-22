@@ -3,10 +3,12 @@ import { mainTheme } from '../../themes/mainTheme';
 import FeatureList from './FeatureList';
 import memory_preview from '../../assets/imgs/preview_share_your_memories.png';
 import english_preview from '../../assets/imgs/preview_learn_english_with_dictionary.png';
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import CodeRoundedIcon from '@mui/icons-material/CodeRounded';
 
 const demoCodeBtnStyle = {
   position: 'relative',
-  p: '0.5rem 1rem',
+  p: '0.5rem 0.7rem',
 
   color: mainTheme.palette.primary.main,
   borderRadius: '1rem',
@@ -15,6 +17,8 @@ const demoCodeBtnStyle = {
   transition: 'all .2s ease-in-out',
   mr: '1rem',
   boxShadow: ' 4px 4px 8px #898989, -4px -4px 8px #edeaea',
+  display: 'flex',
+  justifyContent: 'center',
 
   '&:active': {
     boxShadow: 'inset 4px 4px 8px #898989, inset -4px -4px 8px #edeaea',
@@ -34,8 +38,8 @@ const Project = () => {
       sx={{
         m: 'auto auto',
         position: 'relative',
-        width: '75%',
-        maxWidth: '1536px',
+        width: '100%',
+        maxWidth: '1200px',
       }}
     >
       <Typography
@@ -49,13 +53,7 @@ const Project = () => {
         ＃Project
       </Typography>
 
-      <Grid
-        className="project_title"
-        container
-        justifyContent="center"
-        spacing={5}
-        padding={3}
-      >
+      <Grid container justifyContent="center" spacing={5} padding={3}>
         <Grid
           item
           xs={12}
@@ -113,11 +111,17 @@ const Project = () => {
                 href="http://www.shareyourmemories.com"
                 sx={demoCodeBtnStyle}
               >
+                {/* <Typography> */}
+                <RemoveRedEyeIcon sx={{ mr: '0.5rem' }} />
                 DEMO
+                {/* </Typography> */}
               </Box>
             </Tooltip>
 
-            <Box sx={demoCodeBtnStyle}>CODE</Box>
+            <Box sx={demoCodeBtnStyle}>
+              <CodeRoundedIcon sx={{ mr: '0.5rem' }} />
+              CODE
+            </Box>
           </Grid>
 
           <FeatureList whichProject={`Mem`} />
@@ -174,10 +178,14 @@ const Project = () => {
               href="http://www.shareyourmemories.com"
               sx={demoCodeBtnStyle}
             >
+              <RemoveRedEyeIcon sx={{ mr: '0.5rem' }} />
               DEMO
             </Box>
 
-            <Box sx={demoCodeBtnStyle}>CODE</Box>
+            <Box sx={demoCodeBtnStyle}>
+              <CodeRoundedIcon sx={{ mr: '0.5rem' }} />
+              CODE
+            </Box>
           </Grid>
 
           <FeatureList whichProject="Eng" />

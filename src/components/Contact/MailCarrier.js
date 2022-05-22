@@ -81,9 +81,9 @@ const MailCarrier = ({ contactMailCarrier }) => {
             width="252"
             height="371"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -93,7 +93,7 @@ const MailCarrier = ({ contactMailCarrier }) => {
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
-              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"
               result="hardAlpha"
             />
             <feOffset dy="4" />
@@ -116,9 +116,9 @@ const MailCarrier = ({ contactMailCarrier }) => {
             width="172.921"
             height="343.299"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -128,7 +128,7 @@ const MailCarrier = ({ contactMailCarrier }) => {
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
-              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"
               result="hardAlpha"
             />
             <feOffset dx="4" dy="4" />
@@ -151,9 +151,9 @@ const MailCarrier = ({ contactMailCarrier }) => {
             width="68.5562"
             height="47.0799"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -163,7 +163,7 @@ const MailCarrier = ({ contactMailCarrier }) => {
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
-              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"
               result="hardAlpha"
             />
             <feOffset dx="4" dy="4" />
@@ -186,9 +186,9 @@ const MailCarrier = ({ contactMailCarrier }) => {
             width="67.5329"
             height="21.0364"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -198,7 +198,7 @@ const MailCarrier = ({ contactMailCarrier }) => {
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
-              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"
               result="hardAlpha"
             />
             <feOffset dx="3" dy="5" />

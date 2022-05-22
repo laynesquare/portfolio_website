@@ -1,43 +1,39 @@
-import { Box, Grow, AppBar, Toolbar } from '@mui/material';
+import { Box, Grow, AppBar, Toolbar, Grid } from '@mui/material';
 import { default as officialLogo } from '../../assets/imgs/official_logo.svg';
 
 import { useState, useEffect, useRef } from 'react';
 import { useMediaQuery } from '@mui/material';
+import { mainTheme } from '../../themes/mainTheme';
+import { default as gitIcon } from '../../assets/imgs/github_icon.svg';
 
 const style = {
   line: {
     width: '100vw',
-    textShadow: ' 3px 3px 5px #898989,   -3px -3px 5px #edeaea',
+    textShadow: ' 2px 2px 5px #898989,   -2px -2px 5px #edeaea',
   },
 
   left: {
     width: '50vw',
     display: 'inline-block',
-    color: '#CDCDCD',
-
-    // transform: 'skew(0deg, -15deg)',
     overflow: 'hidden',
   },
 
   leftContent: {
     width: '100vw',
     textAlign: 'center',
-    color: 'gradient(rgba(188,37,103,1) 0%, rgba(101,47,141,1) 100%)',
   },
 
   leftSpan: {
     display: 'inline-block',
     transition: 'ease-out .6s',
     lineHeight: '.8',
+    color: mainTheme.palette.background.default,
   },
 
   right: {
     width: '50vw',
     display: 'inline-block',
     overflow: 'hidden',
-    color: '#CDCDCD',
-
-    // transform: ' skew(0deg, 15deg)',
   },
 
   rightContent: {
@@ -50,7 +46,7 @@ const style = {
     display: 'inline-block',
     transition: 'ease-out .6s',
     lineHeight: '.8',
-    // textDecoration: 'underline',
+    color: mainTheme.palette.background.default,
   },
 };
 
@@ -96,7 +92,14 @@ const Hero = () => {
   window.addEventListener('mousemove', handleMouseMove);
 
   return (
-    <Box className="hero-bg" sx={{ height: '100vh' }}>
+    <Box
+      className="hero-bg"
+      sx={{
+        height: '100vh',
+        maxWidth: '100%',
+        overflowX: 'hidden',
+      }}
+    >
       <Box
         sx={{
           component: 'img',
@@ -112,8 +115,6 @@ const Hero = () => {
           p: '1rem',
           boxShadow: ' 3px 3px 5px #898989,   -3px -3px 5px #edeaea',
           borderRadius: '50%',
-
-          // backgroundColor: 'red',
         }}
       >
         <Box
@@ -127,10 +128,7 @@ const Hero = () => {
       <Box
         sx={{
           position: 'absolute',
-
           top: '45%',
-
-          border: ' 5px solid #CDCDCD',
           fontSize: '7.5vw',
           lineHeight: '0.9',
         }}
@@ -250,6 +248,40 @@ const Hero = () => {
           </Box>
         </Box>
       </Box>
+
+      <Grid
+        container
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          position: 'absolute',
+          bottom: '2rem',
+          // bgcolor: 'red',
+        }}
+      >
+        <Grid
+          item
+          component={'img'}
+          src={gitIcon}
+          sx={{
+            border: '2px solid #CDCDCD',
+            borderRadius: '50%',
+            boxShadow: ' 2px 2px 4px #898989,  -2px -2px 4px #edeaea',
+            mr: '1rem',
+          }}
+        ></Grid>
+        <Grid
+          item
+          sx={{
+            color: mainTheme.palette.background.default,
+
+            textShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
+          }}
+        >
+          laynechensquare@gmail.com
+        </Grid>
+      </Grid>
     </Box>
   );
 };

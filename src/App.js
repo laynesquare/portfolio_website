@@ -11,13 +11,12 @@ import bgImg from './assets/imgs/background.png';
 import { Paper } from '@mui/material';
 
 function App() {
-  const nice = 'yes';
-  console.log(nice);
   return (
     <>
-      <Sidebar />
-      {/* <Navbar /> */}
+      <Navbar />
+      {/* <Sidebar /> */}
       <Hero />
+
       <About />
       <Project />
       <Contact />

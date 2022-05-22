@@ -15,6 +15,7 @@ const AvatarMan = ({ aboutAvatarMan }) => {
         height="194"
         viewBox="0 0 194 194"
         xmlns="http://www.w3.org/2000/svg"
+        // shapeRendering="geometricPrecision"
       >
         <g id="Frame 4 1">
           <g id="Frame 1" filter="url(#filter0_i_1_2)">
@@ -55,9 +56,9 @@ const AvatarMan = ({ aboutAvatarMan }) => {
           <filter
             id="filter0_i_1_2"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -67,7 +68,7 @@ const AvatarMan = ({ aboutAvatarMan }) => {
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
-              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"
               result="hardAlpha"
             />
             <feOffset dx="4" dy="4" />

@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { default as javascriptLogo } from '../../assets/imgs/JavaScript_logo.svg';
 import { default as htmlLogo } from '../../assets/imgs/HTML5_logo.svg';
 import { default as cssLogo } from '../../assets/imgs/CSS3_logo.svg';
@@ -22,7 +22,7 @@ import { default as photoshopLogo } from '../../assets/imgs/Adobe_Photoshop_CC_i
 
 import { default as illustratorLogo } from '../../assets/imgs/Adobe_Illustrator_CC_icon.svg';
 
-import { Typography, Box, Grid } from '@mui/material';
+import { Typography, Box, Grid, useMediaQuery } from '@mui/material';
 import { mainTheme } from '../../themes/mainTheme';
 
 const techIcons = [
@@ -50,6 +50,9 @@ const techIcons = [
 ];
 
 const Technologies = () => {
+  const isMobile = useMediaQuery('(max-width:600px)');
+  console.log(isMobile);
+
   return (
     <Box>
       <Grid
@@ -58,8 +61,6 @@ const Technologies = () => {
           display: 'flex',
           justifyContent: 'space-around',
           alignItems: 'flex-end',
-          //   pointerEvents: 'none',
-          //   background: 'red',
         }}
       >
         {techIcons.map((tech, index) => (
@@ -73,12 +74,11 @@ const Technologies = () => {
               justifyContent: 'center',
               flexDirection: 'column',
 
-              minWidth: '100px',
-              maxWidth: '150px',
-              m: '1rem',
+              minWidth: isMobile ? '80px' : '100px',
+              maxWidth: isMobile ? '120px' : '150px',
+              m: isMobile ? '0.6rem' : '1rem',
               transition: 'all 0.3s ease-in-out',
 
-              // [`@media (max-width: ${mainTheme.breakpoints.md}px)`]: {
               '&:hover': {
                 boxShadow:
                   'inset 4px 4px 9px #898989,  inset -4px -4px 9px #f7f4f4',
@@ -89,7 +89,6 @@ const Technologies = () => {
               component={'img'}
               src={tech.logo}
               sx={{
-                // borderRadius: '30%',
                 mb: '1rem',
                 pointerEvents: 'none',
               }}
@@ -98,8 +97,9 @@ const Technologies = () => {
               textAlign={'center'}
               sx={{
                 textShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
-                // color: mainTheme.palette.background.default,
+
                 justifySelf: 'flex-end',
+                fontSize: isMobile ? '0.5rem' : '1rem',
               }}
             >
               {tech.name}
