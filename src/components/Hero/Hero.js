@@ -257,7 +257,7 @@ const Hero = () => {
           justifyContent: 'center',
           position: 'absolute',
           bottom: '2rem',
-          // bgcolor: 'red',
+          p: '0rem 1rem',
         }}
       >
         <Grid

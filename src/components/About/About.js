@@ -23,17 +23,38 @@ const About = () => {
           maxWidth: '1200px',
         }}
       >
-        <Typography
-          variant="h2"
-          textAlign={'center'}
+        <Box
           sx={{
-            textShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
-            color: mainTheme.palette.background.default,
-            // mb: '2rem',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
-          ＃About
-        </Typography>
+          <Typography
+            variant="h2"
+            textAlign={'center'}
+            sx={{
+              textShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
+              color: mainTheme.palette.background.default,
+              // bgcolor: 'red',
+              p: '2rem',
+              borderRadius: '35% 65% 66% 34% / 39% 48% 52% 61%  ',
+              display: 'inline-block',
+              borderLeft: '10px dotted #CDCDCD',
+              borderRight: '15px dotted #CDCDCD',
+              // borderTop: '5px dotted #CDCDCD',
+              // borderBottom: '15px dotted #CDCDCD',
+              // border: '10px solid rgba(0, 0, 0, 0.1)',
+
+              boxShadow:
+                ' 5px 5px 9px #898989,  -5px -5px 9px #edeaea, inset 5px 5px 9px #898989, inset -5px -5px 9px #edeaea',
+
+              // mb: '2rem',
+            }}
+          >
+            #About
+          </Typography>
+        </Box>
         <Box
           sx={{
             display: 'flex',
@@ -56,7 +77,6 @@ const About = () => {
                 width: '200px',
                 height: '200px',
                 // bgcolor: 'green',
-                border: '5px solid #CDCDCD',
 
                 display: 'flex',
                 justifyContent: 'center',

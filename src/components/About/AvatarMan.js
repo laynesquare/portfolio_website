@@ -5,7 +5,7 @@ const AvatarMan = ({ aboutAvatarMan }) => {
   return (
     <Tooltip
       title="Yo, let's battle to the music. Show me what you got!"
-      placement="left"
+      placement="top"
       enterDelay={0}
       open={aboutAvatarMan}
       sx={{ lineHeight: '0.9rem' }}

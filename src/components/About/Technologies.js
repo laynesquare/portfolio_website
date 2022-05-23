@@ -51,7 +51,6 @@ const techIcons = [
 
 const Technologies = () => {
   const isMobile = useMediaQuery('(max-width:600px)');
-  console.log(isMobile);
 
   return (
     <Box>
@@ -65,6 +64,7 @@ const Technologies = () => {
       >
         {techIcons.map((tech, index) => (
           <Grid
+            key={index}
             item
             sx={{
               boxShadow: ' 3px 3px 5px #898989,   -3px -3px 5px #edeaea',
