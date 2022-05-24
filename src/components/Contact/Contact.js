@@ -1,32 +1,63 @@
 import { useState } from 'react';
-import { Typography, Box, Container, Tooltip } from '@mui/material';
+import {
+  Typography,
+  Box,
+  Container,
+  Tooltip,
+  useMediaQuery,
+} from '@mui/material';
 import { mainTheme } from '../../themes/mainTheme';
 import MailCarrier from './MailCarrier';
 import MailRoundedIcon from '@mui/icons-material/MailRounded';
 
 const Contact = () => {
+  const isMobile = useMediaQuery('(max-width:600px)');
+  console.log(isMobile);
   const [contactMailCarrier, setContactMailCarrier] = useState(false);
   return (
     <Box
+      id="contactSection"
       sx={{
-        m: '0rem auto 4rem auto',
+        m: '0rem auto 0rem auto',
+        p: '4rem 0rem 4rem 0rem',
+
         position: 'relative',
         width: '100%',
         maxWidth: '1200px',
+
         // background: 'grey',
       }}
     >
-      <Typography
-        variant="h2"
-        textAlign={'center'}
+      <Box
         sx={{
-          textShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
-          color: mainTheme.palette.background.default,
-          mb: '4rem',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
-        ＃Contact
-      </Typography>
+        <Typography
+          variant={isMobile ? 'h5' : 'h3'}
+          textAlign={'center'}
+          sx={{
+            textShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
+            color: mainTheme.palette.background.default,
+
+            p: '2rem',
+
+            borderRadius: '50%',
+            display: 'inline-block',
+            borderLeft: '20px solid #CDCDCD',
+            borderRight: '20px solid #CDCDCD',
+
+            boxShadow:
+              ' 5px 5px 9px #898989,  -5px -5px 9px #edeaea, inset 5px 5px 9px #898989, inset -5px -5px 9px #edeaea',
+
+            mb: '2rem',
+          }}
+        >
+          #Contact
+        </Typography>
+      </Box>
       <Box
         onMouseEnter={() => setContactMailCarrier(true)}
         onMouseLeave={() => setContactMailCarrier(false)}
@@ -37,7 +68,10 @@ const Contact = () => {
           mb: '3rem',
         }}
       >
-        <MailCarrier contactMailCarrier={contactMailCarrier} />
+        <MailCarrier
+          contactMailCarrier={contactMailCarrier}
+          isMobile={isMobile}
+        />
       </Box>
       <Box
         sx={{

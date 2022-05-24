@@ -1,11 +1,11 @@
 import React from 'react';
 import { Tooltip } from '@mui/material';
 
-const MailCarrier = ({ contactMailCarrier }) => {
+const MailCarrier = ({ contactMailCarrier, isMobile }) => {
   return (
     <Tooltip
       title="Well, seems like you're a poor dancer since you didn't move in the slightest. But still, you can send me an email if you want to get in touch!"
-      placement="left-start"
+      placement={isMobile ? 'top' : 'left-start'}
       enterDelay={0}
       open={contactMailCarrier}
       sx={{ lineHeight: '0.9rem' }}

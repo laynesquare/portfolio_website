@@ -7,18 +7,18 @@ import { useMediaQuery } from '@mui/material';
 
 const About = () => {
   const [aboutAvatarMan, setAboutAvatarMan] = useState(false);
-  const [isMobile, setIsMobile] = useState(
-    useMediaQuery(mainTheme.breakpoints.down('sm'))
-  );
+  const isMobile = useMediaQuery('(max-width:600px)');
 
   return (
     <>
       <Box
+        id="aboutSection"
         onMouseEnter={() => setAboutAvatarMan(true)}
         onMouseLeave={() => setAboutAvatarMan(false)}
         sx={{
           width: '100%',
-          m: '2rem auto',
+          m: 'auto auto',
+          p: '4rem 0rem',
 
           maxWidth: '1200px',
         }}
@@ -31,20 +31,18 @@ const About = () => {
           }}
         >
           <Typography
-            variant="h2"
+            variant={isMobile ? 'h5' : 'h3'}
             textAlign={'center'}
             sx={{
               textShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
               color: mainTheme.palette.background.default,
-              // bgcolor: 'red',
+
               p: '2rem',
-              borderRadius: '35% 65% 66% 34% / 39% 48% 52% 61%  ',
+
+              borderRadius: '50%',
               display: 'inline-block',
-              borderLeft: '10px dotted #CDCDCD',
-              borderRight: '15px dotted #CDCDCD',
-              // borderTop: '5px dotted #CDCDCD',
-              // borderBottom: '15px dotted #CDCDCD',
-              // border: '10px solid rgba(0, 0, 0, 0.1)',
+              borderLeft: '20px solid #CDCDCD',
+              borderRight: '20px solid #CDCDCD',
 
               boxShadow:
                 ' 5px 5px 9px #898989,  -5px -5px 9px #edeaea, inset 5px 5px 9px #898989, inset -5px -5px 9px #edeaea',
@@ -94,7 +92,6 @@ const About = () => {
               display: 'flex',
               alignItems: 'center',
               p: '1rem',
-              // bgcolor: 'blue',
             }}
           >
             <Typography

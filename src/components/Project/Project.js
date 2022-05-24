@@ -1,4 +1,4 @@
-import { Typography, Box, Grid, Tooltip } from '@mui/material';
+import { Typography, Box, Grid, Tooltip, useMediaQuery } from '@mui/material';
 import { mainTheme } from '../../themes/mainTheme';
 import FeatureList from './FeatureList';
 import memory_preview from '../../assets/imgs/preview_share_your_memories.png';
@@ -33,27 +33,53 @@ const demoCodeBtnStyle = {
 };
 
 const Project = () => {
+  const isMobile = useMediaQuery('(max-width:600px)');
+
   return (
     <Box
+      id="projectSection"
       sx={{
-        m: 'auto auto',
+        m: '0rem auto 0rem auto',
+
+        p: '4rem 0rem 2rem 0rem',
         position: 'relative',
         width: '100%',
         maxWidth: '1200px',
+        // bgcolor: 'blue',
       }}
     >
-      <Typography
-        variant="h2"
-        textAlign={'center'}
+      <Box
         sx={{
-          textShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
-          color: mainTheme.palette.background.default,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
-        ＃Project
-      </Typography>
+        <Typography
+          variant={isMobile ? 'h5' : 'h3'}
+          textAlign={'center'}
+          sx={{
+            textShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
+            color: mainTheme.palette.background.default,
 
-      <Grid container justifyContent="center" spacing={5} padding={3}>
+            p: '2rem',
+
+            borderRadius: '50%',
+            display: 'inline-block',
+            borderLeft: '20px solid #CDCDCD',
+            borderRight: '20px solid #CDCDCD',
+
+            boxShadow:
+              ' 5px 5px 9px #898989,  -5px -5px 9px #edeaea, inset 5px 5px 9px #898989, inset -5px -5px 9px #edeaea',
+
+            // mb: '2rem',
+          }}
+        >
+          #Project
+        </Typography>
+      </Box>
+
+      <Grid container justifyContent="center" spacing={5} padding={2}>
         <Grid
           item
           xs={12}
@@ -93,7 +119,6 @@ const Project = () => {
 
           <Grid
             item
-            xs={3}
             sx={{
               display: 'flex',
               justifyContent: 'center',
@@ -118,7 +143,7 @@ const Project = () => {
               </Box>
             </Tooltip>
 
-            <Box sx={demoCodeBtnStyle}>
+            <Box sx={{ ...demoCodeBtnStyle, mr: '0rem' }}>
               <CodeRoundedIcon sx={{ mr: '0.5rem' }} />
               CODE
             </Box>
@@ -165,7 +190,6 @@ const Project = () => {
 
           <Grid
             item
-            xs={3}
             sx={{
               display: 'flex',
               justifyContent: 'center',
@@ -182,7 +206,7 @@ const Project = () => {
               DEMO
             </Box>
 
-            <Box sx={demoCodeBtnStyle}>
+            <Box sx={{ ...demoCodeBtnStyle, mr: '0rem' }}>
               <CodeRoundedIcon sx={{ mr: '0.5rem' }} />
               CODE
             </Box>

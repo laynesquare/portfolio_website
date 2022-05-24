@@ -26,7 +26,7 @@ const style = {
   leftSpan: {
     display: 'inline-block',
     transition: 'ease-out .6s',
-    lineHeight: '.8',
+    lineHeight: '.9',
     color: mainTheme.palette.background.default,
   },
 
@@ -51,6 +51,7 @@ const style = {
 };
 
 const Hero = () => {
+  const isMobile = useMediaQuery('(max-width:600px)');
   const [windowDimenion, detectHW] = useState({
     winWidth: window.innerWidth,
     winHeight: window.innerHeight,
@@ -93,6 +94,7 @@ const Hero = () => {
 
   return (
     <Box
+      id="homeSection"
       className="hero-bg"
       sx={{
         height: '100vh',
@@ -104,15 +106,14 @@ const Hero = () => {
         sx={{
           component: 'img',
           position: 'absolute',
-          minWidth: '30vh',
-          maxWidth: '30vh',
+
           top: '10%',
           left: '50%',
           transform: 'translateX(-50%)',
           display: 'block',
           margin: 'auto',
           pointerEvents: 'none',
-          p: '1rem',
+          p: '0.5rem 0.5rem 0.15rem 0.5rem',
           boxShadow: ' 3px 3px 5px #898989,   -3px -3px 5px #edeaea',
           borderRadius: '50%',
         }}
@@ -122,13 +123,15 @@ const Hero = () => {
           className="logo_animation"
           src={officialLogo}
           alt="logo"
+          sx={{ minWidth: '30vh', minHeight: '30vh' }}
         ></Box>
       </Box>
 
       <Box
         sx={{
           position: 'absolute',
-          top: '45%',
+          top: isMobile ? '50%' : '45%',
+
           fontSize: '7.5vw',
           lineHeight: '0.9',
         }}
@@ -269,6 +272,7 @@ const Hero = () => {
             borderRadius: '50%',
             boxShadow: ' 2px 2px 4px #898989,  -2px -2px 4px #edeaea',
             mr: '1rem',
+            mb: isMobile ? '0.8rem' : '0rem',
           }}
         ></Grid>
         <Grid

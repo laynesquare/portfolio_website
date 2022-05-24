@@ -60,6 +60,7 @@ const Technologies = () => {
           display: 'flex',
           justifyContent: 'space-around',
           alignItems: 'flex-end',
+          mt: isMobile ? '2rem' : '0rem',
         }}
       >
         {techIcons.map((tech, index) => (

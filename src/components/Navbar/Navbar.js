@@ -13,14 +13,13 @@ import { useState, useRef, useEffect } from 'react';
 
 const navItemStyle = {
   textAlign: 'center',
-
+  textDecoration: 'none',
   backgroundColor: '#7C7C7C',
   color: 'transparent',
   textShadow: '2px 2px 3px rgba(255,255,255,0.5)',
   backgroundClip: 'text',
   ':hover': {
     color: mainTheme.palette.background.default,
-
     textShadow: ' 0.5px 0.5px 1px #898989,   -0.5px -0.5px 1px #f7f4f4',
   },
 };
@@ -123,10 +122,17 @@ const Navbar = () => {
                   'inset 5px 5px 9px #898989, inset -5px -5px 9px #edeaea',
               }}
             >
-              <Grid item sx={{ ...navItemStyle, p: '0.5rem' }}>
+              <Grid
+                item
+                component={'a'}
+                href={'#homeSection'}
+                sx={{ ...navItemStyle, p: '0.5rem' }}
+              >
                 #Home
               </Grid>
               <Grid
+                component={'a'}
+                href={'#aboutSection'}
                 item
                 sx={{
                   ...navItemStyle,
@@ -136,6 +142,8 @@ const Navbar = () => {
                 #About
               </Grid>
               <Grid
+                component={'a'}
+                href={'#projectSection'}
                 item
                 sx={{
                   ...navItemStyle,
@@ -145,6 +153,8 @@ const Navbar = () => {
                 #Project
               </Grid>
               <Grid
+                component={'a'}
+                href={'#contactSection'}
                 item
                 sx={{
                   ...navItemStyle,
@@ -245,11 +255,18 @@ const Navbar = () => {
             top: '0px',
           }}
         >
-          <Grid item sx={{ ...navItemStyle }}>
+          <Grid
+            item
+            component={'a'}
+            href={'#homeSection'}
+            sx={{ ...navItemStyle }}
+          >
             #Home
           </Grid>
           <Grid
             item
+            component={'a'}
+            href={'#aboutSection'}
             sx={{
               ...navItemStyle,
             }}
@@ -257,6 +274,8 @@ const Navbar = () => {
             #About
           </Grid>
           <Grid
+            component={'a'}
+            href={'#projectSection'}
             item
             sx={{
               ...navItemStyle,
@@ -265,6 +284,8 @@ const Navbar = () => {
             #Project
           </Grid>
           <Grid
+            component={'a'}
+            href={'#contactSection'}
             item
             sx={{
               ...navItemStyle,
