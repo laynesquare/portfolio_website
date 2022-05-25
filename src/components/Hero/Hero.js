@@ -133,7 +133,7 @@ const Hero = () => {
           top: isMobile ? '50%' : '45%',
 
           fontSize: '7.5vw',
-          lineHeight: '0.9',
+          lineHeight: '0.95',
         }}
       >
         {/* LINE1 */}
@@ -277,8 +277,11 @@ const Hero = () => {
         ></Grid>
         <Grid
           item
+          component={'a'}
+          href="mailto:laynechensquare@gmail.com"
           sx={{
             color: mainTheme.palette.background.default,
+            textDecoration: 'none',
 
             textShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
           }}

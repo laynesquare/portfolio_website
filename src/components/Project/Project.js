@@ -123,7 +123,7 @@ const Project = () => {
               display: 'flex',
               justifyContent: 'center',
               margin: 'auto',
-              mb: '3rem',
+              mb: '2rem',
             }}
           >
             <Tooltip
@@ -142,12 +142,25 @@ const Project = () => {
                 {/* </Typography> */}
               </Box>
             </Tooltip>
-
             <Box sx={{ ...demoCodeBtnStyle, mr: '0rem' }}>
               <CodeRoundedIcon sx={{ mr: '0.5rem' }} />
               CODE
             </Box>
           </Grid>
+          <Box
+            sx={{
+              display: 'block',
+              width: '100%',
+              // bgcolor: 'red',
+              textAlign: 'center',
+              fontSize: '0.8rem',
+              mb: '2rem',
+              color: '#000033',
+            }}
+          >
+            {'// '}Slow loading might occur due to Heroku's cloud services
+            deploying the server to the free dyno.
+          </Box>
 
           <FeatureList whichProject={`Mem`} />
         </Grid>
@@ -194,7 +207,7 @@ const Project = () => {
               display: 'flex',
               justifyContent: 'center',
               margin: 'auto',
-              mb: '3rem',
+              mb: '2rem',
             }}
           >
             <Box

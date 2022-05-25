@@ -83,6 +83,8 @@ const Contact = () => {
         }}
       >
         <Typography
+          component={'a'}
+          href="mailto:laynechensquare@gmail.com"
           sx={{
             p: '2rem',
             // bgcolor: 'blue',
@@ -91,11 +93,12 @@ const Contact = () => {
             justifyContent: 'center',
             alignItems: 'center',
             borderRadius: '32% 68% 41% 59% / 61% 59% 41% 39% ',
-
+            color: mainTheme.palette.primary.main,
             transition: 'all .2s ease-in-out',
             textShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
 
             boxShadow: ' 4px 4px 8px #898989, -4px -4px 8px #edeaea',
+            textDecoration: 'none',
 
             '&:active': {
               boxShadow:

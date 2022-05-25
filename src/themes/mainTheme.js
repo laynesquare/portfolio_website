@@ -43,7 +43,7 @@ export const mainTheme = createTheme({
     primary: { main: '#123b38', light: '#1F625E' },
     secondary: { main: '#ff616f' },
     background: { default: '#CDCDCD' },
-    text: { primary: '#123B38', secondary: '#335C59' },
+    text: { primary: '#123B38', secondary: '#123b38' },
     mode: 'light',
   },
 });
