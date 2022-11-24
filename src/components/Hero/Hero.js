@@ -1,15 +1,14 @@
-import { Box, Grow, AppBar, Toolbar, Grid } from '@mui/material';
-import { default as officialLogo } from '../../assets/imgs/official_logo.svg';
-
 import { useState, useEffect, useRef } from 'react';
-import { useMediaQuery } from '@mui/material';
-import { mainTheme } from '../../themes/mainTheme';
+import { default as officialLogo } from '../../assets/imgs/official_logo.svg';
 import { default as gitIcon } from '../../assets/imgs/github_icon.svg';
+import { useMediaQuery } from '@mui/material';
+import { Box, Grid } from '@mui/material';
+import { mainTheme } from '../../themes/mainTheme';
 
 const style = {
   line: {
     width: '100vw',
-    textShadow: ' 2px 2px 5px #898989,   -2px -2px 5px #edeaea',
+    textShadow: ' 2px 2px 5px #898989, -2px -2px 5px #edeaea',
   },
 
   left: {
@@ -27,7 +26,7 @@ const style = {
     display: 'inline-block',
     transition: 'ease-out .6s',
     lineHeight: '.9',
-    color: mainTheme.palette.background.default,
+    color: mainTheme.palette.primary.light,
   },
 
   right: {
@@ -47,6 +46,7 @@ const style = {
     transition: 'ease-out .6s',
     lineHeight: '.8',
     color: mainTheme.palette.background.default,
+    // color: mainTheme.palette.primary.light,
   },
 };
 
@@ -100,22 +100,22 @@ const Hero = () => {
         height: '100vh',
         maxWidth: '100%',
         overflowX: 'hidden',
+        fontFamily: 'Stalinist One',
       }}
     >
       <Box
         sx={{
-          component: 'img',
-          position: 'absolute',
-
-          top: '10%',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          display: 'block',
-          margin: 'auto',
-          pointerEvents: 'none',
+          boxShadow: ' 3px 3px 5px #898989, -3px -3px 5px #edeaea',
           p: '0.5rem 0.5rem 0.15rem 0.5rem',
-          boxShadow: ' 3px 3px 5px #898989,   -3px -3px 5px #edeaea',
+          transform: 'translateX(-50%)',
+          pointerEvents: 'none',
+          position: 'absolute',
           borderRadius: '50%',
+          display: 'block',
+          component: 'img',
+          margin: 'auto',
+          left: '50%',
+          top: '10%',
         }}
       >
         <Box
@@ -131,8 +131,7 @@ const Hero = () => {
         sx={{
           position: 'absolute',
           top: isMobile ? '50%' : '45%',
-
-          fontSize: '7.5vw',
+          fontSize: '6.5vw',
           lineHeight: '0.95',
         }}
       >
@@ -155,7 +154,7 @@ const Hero = () => {
                 className="spanSlow"
                 sx={style.leftSpan}
               >
-                HI, I'M LAYNE,
+                Hi, I'm Layne,
               </Box>
             </Box>
           </Box>
@@ -170,7 +169,8 @@ const Hero = () => {
                 }}
                 sx={style.rightSpan}
               >
-                HI, I'M LAYNE,
+                {/* HI, I'M LAYNE, */}
+                Hi, I'm Layne,
               </Box>
             </Box>
           </Box>
@@ -191,9 +191,12 @@ const Hero = () => {
                   spansSlow.current[0] = el; //speedSlow
                 }}
                 className="spanSlow"
-                sx={style.leftSpan}
+                sx={{
+                  ...style.leftSpan,
+                  color: mainTheme.palette.background.default,
+                }}
               >
-                A WEB
+                a Web
               </Box>
             </Box>
           </Box>
@@ -206,9 +209,12 @@ const Hero = () => {
                 ref={(el) => {
                   spansSlow.current[1] = el; //speedSlow
                 }}
-                sx={style.rightSpan}
+                sx={{
+                  ...style.rightSpan,
+                  color: mainTheme.palette.primary.light,
+                }}
               >
-                A WEB
+                a Web
               </Box>
             </Box>
           </Box>
@@ -230,7 +236,7 @@ const Hero = () => {
                 className="spanSlow"
                 sx={style.leftSpan}
               >
-                DEVELOPER.
+                Developer.
               </Box>
             </Box>
           </Box>
@@ -245,7 +251,7 @@ const Hero = () => {
                 }}
                 sx={style.rightSpan}
               >
-                DEVELOPER.
+                Developer.
               </Box>
             </Box>
           </Box>
@@ -280,9 +286,9 @@ const Hero = () => {
           component={'a'}
           href="mailto:laynechensquare@gmail.com"
           sx={{
-            color: mainTheme.palette.background.default,
+            color: mainTheme.palette.primary.main,
             textDecoration: 'none',
-
+            fontFamily: 'Krona One',
             textShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
           }}
         >

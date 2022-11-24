@@ -4,7 +4,7 @@ import { Tooltip } from '@mui/material';
 const MailCarrier = ({ contactMailCarrier, isMobile }) => {
   return (
     <Tooltip
-      title="Well, seems like you're a poor dancer since you didn't move in the slightest. But still, you can send me an email if you want to get in touch!"
+      title="Feel free to contact me. I'll get back to you as soon as possible."
       placement={isMobile ? 'top' : 'left-start'}
       enterDelay={0}
       open={contactMailCarrier}

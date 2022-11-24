@@ -1,28 +1,22 @@
-import './App.css';
-import Navbar from './components/Navbar/Navbar';
-import Hero from './components/Hero/Hero';
-import About from './components/About/About';
+import { Box } from '@mui/material';
 import Project from './components/Project/Project';
 import Contact from './components/Contact/Contact';
-import Sidebar from './components/Sidebar/Sidebar';
+import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
-import { Container } from '@mui/material';
-import bgImg from './assets/imgs/background.png';
-import { Paper } from '@mui/material';
+import About from './components/About/About';
+import Hero from './components/Hero/Hero';
+import './App.css';
 
 function App() {
   return (
-    <>
+    <Box sx={{ minWidth: '375px', width: '100%', overflow: 'hidden' }}>
       <Navbar />
-      {/* <Sidebar /> */}
       <Hero />
-
       <About />
       <Project />
       <Contact />
-      {/* <Container maxWidth="lg">the bottom</Container> */}
       <Footer />
-    </>
+    </Box>
   );
 }
 

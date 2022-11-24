@@ -1,15 +1,13 @@
-import React from 'react';
 import {
+  ListItemAvatar,
+  useMediaQuery,
+  ListItemText,
   Typography,
+  ListItem,
   Avatar,
   List,
-  ListItem,
-  ListItemText,
-  ListItemAvatar,
   Grid,
-  useMediaQuery,
 } from '@mui/material';
-
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
 const TechStackIcon = (props) => (
@@ -32,7 +30,6 @@ const iconEffect = {
   p: '0.5rem 1rem',
   borderRadius: '0.5rem',
   overflow: 'hidden',
-
   '&:hover': {
     boxShadow: ' 3px 3px 5px #898989,   -3px -3px 5px #edeaea',
   },
@@ -108,7 +105,7 @@ const FeatureList = ({ whichProject }) => {
       {/* Mem Project */}
       {/* {whichProject === 'Mem' && ( */}
       <>
-        <ListItem alignItems="flex-start">
+        <ListItem alignItems="flex-start" sx={{ p: 0 }}>
           {!isMobile && (
             <ListItemAvatar>
               <Avatar
@@ -116,7 +113,7 @@ const FeatureList = ({ whichProject }) => {
                   backgroundColor: '#123b38',
                   height: '1.9rem',
                   width: '1.9rem',
-                  boxShadow: ' 2px 2px 4px #898989,   -2px -2px 4px #f7f4f4',
+                  boxShadow: ' 2px 2px 4px #898989, -2px -2px 4px #f7f4f4',
                 }}
               >
                 <ArrowRightIcon sx={{ fontSize: '2rem' }} />
@@ -165,9 +162,10 @@ const FeatureList = ({ whichProject }) => {
             }
           />
         </ListItem>
+
         <ListItem
           alignItems="flex-start"
-          sx={{ '&:hover': { '.arrow': { transform: '' } }, mb: '1rem' }}
+          sx={{ '&:hover': { '.arrow': { transform: '' } }, mb: '1rem', p: 0 }}
         >
           {!isMobile && (
             <ListItemAvatar>
@@ -177,7 +175,7 @@ const FeatureList = ({ whichProject }) => {
                   backgroundColor: '#123b38',
                   height: '1.9rem',
                   width: '1.9rem',
-                  boxShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
+                  boxShadow: ' 1px 1px 2px #898989, -1px -1px 2px #f7f4f4',
                 }}
               >
                 <ArrowRightIcon sx={{ fontSize: '2rem' }} />
@@ -206,6 +204,7 @@ const FeatureList = ({ whichProject }) => {
         {/* Tech Stack */}
         {/* Tech Stack */}
         {/* Tech Stack */}
+
         {whichProject === 'Mem' && (
           <>
             <Grid container spacing={2} mb={2} justifyContent="center">
@@ -264,7 +263,7 @@ const FeatureList = ({ whichProject }) => {
         {/* Working Outline */}
         {/* Working Outline */}
         {/* Working Outline */}
-        <ListItem alignItems="flex-start">
+        <ListItem alignItems="flex-start" sx={{ p: 0 }}>
           {!isMobile && (
             <ListItemAvatar>
               <Avatar

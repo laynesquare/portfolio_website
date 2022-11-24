@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat&family=Roboto+Slab&family=Rubik&family=Syncopate:wght@700&family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Stalinist+One&display=swap');
 
 body {
   margin: 0;
@@ -8,31 +8,30 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
-  overflow-x: hidden;
   background-image: url(./assets/imgs/background3.png);
-  background-size: 100% ;
+  background-size: 100%;
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+
 }
 
-
-#carrier_arm1{
-  animation: carrier_arm_animation 2s infinite ;
+#carrier_arm1 {
+  animation: carrier_arm_animation 2s infinite;
   transform-origin: left;
 }
 
-#carrier_arm2{
+#carrier_arm2 {
   animation: carrier_arm_animation 3s infinite;
   transform-origin: left;
 }
 
-#mail{
+#mail {
   animation: carrier_mail_animation 10s ease-in-out infinite;
   transform-origin: top;
   transform: scale(0.7);
-
 }
 
 @keyframes carrier_arm_animation {
@@ -42,17 +41,14 @@ html {
 
   25% {
     transform: rotate(-2deg);
-
   }
 
   50% {
     transform: rotate(2deg);
-
   }
 
   75% {
     transform: rotate(-3deg);
-
   }
 
   100% {
@@ -63,80 +59,59 @@ html {
 @keyframes carrier_mail_animation {
   0% {
     transform: rotate(0deg);
-
   }
 
   25% {
     transform: rotate(-2deg);
-
   }
 
   50% {
     transform: rotate(2deg);
-
   }
 
   75% {
     transform: rotate(-3deg);
-
   }
 
   100% {
     transform: rotate(0deg);
-
-
   }
 }
 
-
-
-
-
-#avatar_body{
+#avatar_body {
   animation: avatar_body_animation 2s infinite;
   transform-origin: bottom;
-shape-rendering: geometricPrecision;
-
-  
- }
-
- #avatar_head{
-  animation: avatar_body_animation 2.5s infinite;
-  transform-origin: top;
- }
-
-
-
-
-
-
-.logo_animation{
-  animation: logo_animation 10s infinite linear;
+  shape-rendering: geometricPrecision;
 }
 
+#avatar_head {
+  animation: avatar_body_animation 2.5s infinite;
+  transform-origin: top;
+}
+
+/* .logo_animation {
+  animation: logo_animation 10s infinite linear;
+} */
 
 ::-webkit-scrollbar {
   max-width: 5px;
-} 
+}
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: transparent; 
+  background: transparent;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #123B38; 
-/* box-shadow:  2px 2px 4px #898989,  -2px -2px 4px #edeaea; */
-
+  background: #123b38;
+  /* box-shadow:  2px 2px 4px #898989,  -2px -2px 4px #edeaea; */
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #1F625E; 
+  background: #1f625e;
 }
-
-
 
 @keyframes avatar_body_animation {
   0% {
@@ -145,17 +120,14 @@ shape-rendering: geometricPrecision;
 
   25% {
     transform: rotate(-5deg);
-
   }
 
   50% {
     transform: rotate(5deg);
-
   }
 
   75% {
     transform: rotate(-5deg);
-
   }
 
   100% {
@@ -170,17 +142,14 @@ shape-rendering: geometricPrecision;
 
   25% {
     transform: rotate(-5deg);
-
   }
 
   50% {
     transform: rotate(5deg);
-
   }
 
   75% {
     transform: rotate(-5deg);
-
   }
 
   100% {
@@ -188,32 +157,26 @@ shape-rendering: geometricPrecision;
   }
 }
 
-
-
 @keyframes logo_animation {
   0% {
-    transform: rotate(0deg) ;
+    transform: rotate(0deg);
     /* transform-origin: top right; */
   }
 
   100% {
     transform: rotate(359deg);
     /* transform-origin: top right; */
-
-
   }
 }
 
 @keyframes contentSurfacing {
   0% {
-    opacity: 0 ;
+    opacity: 0;
     /* transform: translate(0, -100px); */
-
   }
 
   100% {
     /* transform: translate(0, 0px); */
     opacity: 100%;
-
   }
 }

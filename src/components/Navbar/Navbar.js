@@ -1,23 +1,14 @@
-import React from 'react';
-import {
-  Container,
-  AppBar,
-  Box,
-  Toolbar,
-  Typography,
-  Grid,
-  useMediaQuery,
-} from '@mui/material';
-import { mainTheme } from '../../themes/mainTheme';
+import { AppBar, Box, Typography, Grid, useMediaQuery } from '@mui/material';
 import { useState, useRef, useEffect } from 'react';
+import { mainTheme } from '../../themes/mainTheme';
 
 const navItemStyle = {
-  textAlign: 'center',
-  textDecoration: 'none',
-  backgroundColor: '#7C7C7C',
-  color: 'transparent',
   textShadow: '2px 2px 3px rgba(255,255,255,0.5)',
+  backgroundColor: '#7C7C7C',
   backgroundClip: 'text',
+  textDecoration: 'none',
+  textAlign: 'center',
+  color: 'transparent',
   ':hover': {
     color: mainTheme.palette.background.default,
     textShadow: ' 0.5px 0.5px 1px #898989,   -0.5px -0.5px 1px #f7f4f4',
@@ -30,26 +21,21 @@ const Navbar = () => {
   const navBarOnScroll = useRef(null);
   const menuForMobile = useRef(null);
 
-  const [prevScrollpos, setPrevScrollpos] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [prevScrollpos, setPrevScrollpos] = useState(0);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       window.addEventListener('scroll', handleSroll);
-
-      // cleanup function
-      return () => {
-        window.removeEventListener('scroll', handleSroll);
-      };
+      return () => window.removeEventListener('scroll', handleSroll);
     }
   }, [prevScrollpos]);
 
   useEffect(() => {
     window.addEventListener('click', handleClickOutsideOfMobileMenu);
 
-    return () => {
+    return () =>
       window.removeEventListener('click', handleClickOutsideOfMobileMenu);
-    };
   });
 
   const handleClickOutsideOfMobileMenu = (e) => {
@@ -59,6 +45,7 @@ const Navbar = () => {
       handleMobileMenu();
     }
   };
+
   const handleSroll = (e) => {
     if (prevScrollpos > window.scrollY) {
       navBarOnScroll.current.style.top = 0;
@@ -67,9 +54,7 @@ const Navbar = () => {
     }
     setPrevScrollpos(window.scrollY);
 
-    if (isMobileMenuOpen) {
-      handleMobileMenu();
-    }
+    if (isMobileMenuOpen) handleMobileMenu();
   };
 
   const handleMobileMenu = () => {
@@ -90,19 +75,14 @@ const Navbar = () => {
             ref={menuForMobile}
             sx={{
               position: 'absolute',
-              // bgcolor: 'blue',
               width: '100%',
-              // height: '25vh',
-              // height: '5rem',
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'flex-end',
-              // boxShadow: '15px 15px 100px 100px rgba(0,0,0,0.2)',
+              transition: 'all 0.2s ease-in-out',
               background:
                 'linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.2) ,rgba(0,0,0,0))',
               opacity: '0',
-              // bgcolor: 'red',
-              transition: 'all 0.2s ease-in-out',
             }}
           >
             <Box
@@ -187,7 +167,6 @@ const Navbar = () => {
               flexWrap: 'nowrap',
               p: '0.5rem',
               justifyContent: 'space-around',
-
               position: 'fixed',
               zIndex: '10',
               transition: 'all 0.5s ease-in-out',

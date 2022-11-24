@@ -1,26 +1,11 @@
-import React from 'react';
-import { Grid, Button, Box } from '@mui/material';
-import { default as symbol } from '../../assets/imgs/decor_symbol.svg';
 import { default as gitIcon } from '../../assets/imgs/github_icon.svg';
+import { Grid, Box } from '@mui/material';
 import { mainTheme } from '../../themes/mainTheme';
-import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
+
 const Sidebar = () => {
   return (
     <>
       <div>
-        {/* <Box
-          sx={{
-            minHeight: '2rem',
-            minWidth: '2rem',
-            width: '3rem',
-            pointerEvents: 'none',
-            top: '10px',
-            position: 'fixed',
-            zIndex: '0',
-          }}
-        >
-          <img src={symbol} alt="decor_symbol"></img>
-        </Box> */}
         <Grid
           container
           justifyContent="center"

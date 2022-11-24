@@ -1,4 +1,5 @@
 import { Typography, Box, Grid, Tooltip, useMediaQuery } from '@mui/material';
+import aboutTop from '../../assets/imgs/aboutTop3.svg';
 import { mainTheme } from '../../themes/mainTheme';
 import FeatureList from './FeatureList';
 import memory_preview from '../../assets/imgs/preview_share_your_memories.png';
@@ -36,199 +37,218 @@ const Project = () => {
   const isMobile = useMediaQuery('(max-width:600px)');
 
   return (
-    <Box
-      id="projectSection"
-      sx={{
-        m: '0rem auto 0rem auto',
-
-        p: '4rem 0rem 2rem 0rem',
-        position: 'relative',
-        width: '100%',
-        maxWidth: '1200px',
-        // bgcolor: 'blue',
-      }}
-    >
+    <>
       <Box
         sx={{
+          width: '100%',
+          aspectRatio: '3/1',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundImage: `url('${aboutTop}')`,
+          overflow: 'visible',
           display: 'flex',
+          alignItems: 'flex-end',
           justifyContent: 'center',
-          alignItems: 'center',
+          // p: '0 0 12px 0',
+          transform: 'rotate(-5deg) scale(1.1)',
+        }}
+      ></Box>
+
+      <Box
+        id="projectSection"
+        sx={{
+          m: '0rem auto 0rem auto',
+
+          p: '4rem 0rem 2rem 0rem',
+          position: 'relative',
+          width: '100%',
+          maxWidth: '1200px',
+          // bgcolor: 'blue',
         }}
       >
-        <Typography
-          variant={isMobile ? 'h5' : 'h3'}
-          textAlign={'center'}
+        <Box
           sx={{
-            textShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
-            color: mainTheme.palette.background.default,
-
-            p: '2rem',
-
-            borderRadius: '50%',
-            display: 'inline-block',
-            borderLeft: '20px solid #CDCDCD',
-            borderRight: '20px solid #CDCDCD',
-
-            boxShadow:
-              ' 5px 5px 9px #898989,  -5px -5px 9px #edeaea, inset 5px 5px 9px #898989, inset -5px -5px 9px #edeaea',
-
-            // mb: '2rem',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
-          #Project
-        </Typography>
-      </Box>
-
-      <Grid container justifyContent="center" spacing={5} padding={2}>
-        <Grid
-          item
-          xs={12}
-          sx={{
-            textShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
-          }}
-        >
-          <Typography variant="h3">01.</Typography>
-          <Typography variant="h4" sx={{ mb: '3rem' }}>
-            Share your memories | Full stack
-          </Typography>
-          <Box
+          <Typography
+            variant={isMobile ? 'h5' : 'h3'}
+            textAlign={'center'}
             sx={{
-              display: 'block',
-              position: 'relative',
-              margin: 'auto',
-              maxWidth: '700px',
-              borderRadius: '1rem',
-              mb: '3rem',
+              textShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
+              color: mainTheme.palette.background.default,
+
+              p: '2rem',
+
+              borderRadius: '50%',
+              display: 'inline-block',
+              borderLeft: '20px solid #CDCDCD',
+              borderRight: '20px solid #CDCDCD',
+
+              boxShadow:
+                ' 5px 5px 9px #898989,  -5px -5px 9px #edeaea, inset 5px 5px 9px #898989, inset -5px -5px 9px #edeaea',
+
+              // mb: '2rem',
             }}
           >
+            #Project
+          </Typography>
+        </Box>
+
+        <Grid container justifyContent="center" spacing={5} padding={2}>
+          <Grid
+            item
+            xs={12}
+            sx={{
+              textShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
+            }}
+          >
+            <Typography variant="h3">01.</Typography>
+            <Typography variant="h4" sx={{ mb: '3rem' }}>
+              Share your memories | Full stack
+            </Typography>
             <Box
-              className="preview"
-              component={'img'}
-              src={memory_preview}
+              sx={{
+                display: 'block',
+                position: 'relative',
+                margin: 'auto',
+                maxWidth: '700px',
+                borderRadius: '1rem',
+                mb: '3rem',
+              }}
+            >
+              <Box
+                className="preview"
+                component={'img'}
+                src={memory_preview}
+                sx={{
+                  display: 'block',
+                  width: '100%',
+                  borderRadius: '1rem',
+                  boxShadow: ' 6px 6px 10px #898989,   -6px -6px 10px #fcfcfc',
+                  border: ' 5px solid #CDCDCD',
+
+                  transition: 'all .2s ease-in-out',
+                }}
+              ></Box>
+            </Box>
+
+            <Grid
+              item
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                margin: 'auto',
+                mb: '2rem',
+              }}
+            >
+              <Tooltip
+                title="Lazy login is now offered, if you are meant to just explore a little."
+                placement="left"
+                enterDelay={0}
+              >
+                <Box
+                  component={'a'}
+                  href="http://www.shareyourmemories.com"
+                  sx={demoCodeBtnStyle}
+                >
+                  {/* <Typography> */}
+                  <RemoveRedEyeIcon sx={{ mr: '0.5rem' }} />
+                  DEMO
+                  {/* </Typography> */}
+                </Box>
+              </Tooltip>
+              <Box sx={{ ...demoCodeBtnStyle, mr: '0rem' }}>
+                <CodeRoundedIcon sx={{ mr: '0.5rem' }} />
+                CODE
+              </Box>
+            </Grid>
+            <Box
               sx={{
                 display: 'block',
                 width: '100%',
-                borderRadius: '1rem',
-                boxShadow: ' 6px 6px 10px #898989,   -6px -6px 10px #fcfcfc',
-                border: ' 5px solid #CDCDCD',
-
-                transition: 'all .2s ease-in-out',
+                // bgcolor: 'red',
+                textAlign: 'center',
+                fontSize: '0.8rem',
+                mb: '2rem',
+                color: '#000033',
               }}
-            ></Box>
-          </Box>
+            >
+              {'// '}Slow loading might occur due to Heroku's cloud services
+              deploying the server to the free dyno.
+            </Box>
+
+            <FeatureList whichProject={`Mem`} />
+          </Grid>
 
           <Grid
             item
+            xs={12}
             sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              margin: 'auto',
-              mb: '2rem',
+              textShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
             }}
           >
-            <Tooltip
-              title="Lazy login is now offered, if you are meant to just explore a little."
-              placement="left"
-              enterDelay={0}
+            <Typography variant="h3">02.</Typography>
+            <Typography variant="h4" sx={{ mb: '3rem' }}>
+              Learn English with Dictionary | Frontend
+            </Typography>
+            <Box
+              sx={{
+                display: 'block',
+                position: 'relative',
+                margin: 'auto',
+                maxWidth: '700px',
+                borderRadius: '1rem',
+                mb: '3rem',
+              }}
+            >
+              <Box
+                className="preview"
+                component={'img'}
+                src={english_preview}
+                sx={{
+                  display: 'block',
+                  width: '100%',
+                  borderRadius: '1rem',
+                  boxShadow: ' 6px 6px 10px #898989,   -6px -6px 10px #fcfcfc',
+                  border: ' 5px solid #CDCDCD',
+                  transition: 'all .2s ease-in-out',
+                }}
+              ></Box>
+            </Box>
+
+            <Grid
+              item
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                margin: 'auto',
+                mb: '2rem',
+              }}
             >
               <Box
                 component={'a'}
                 href="http://www.shareyourmemories.com"
                 sx={demoCodeBtnStyle}
               >
-                {/* <Typography> */}
                 <RemoveRedEyeIcon sx={{ mr: '0.5rem' }} />
                 DEMO
-                {/* </Typography> */}
               </Box>
-            </Tooltip>
-            <Box sx={{ ...demoCodeBtnStyle, mr: '0rem' }}>
-              <CodeRoundedIcon sx={{ mr: '0.5rem' }} />
-              CODE
-            </Box>
+
+              <Box sx={{ ...demoCodeBtnStyle, mr: '0rem' }}>
+                <CodeRoundedIcon sx={{ mr: '0.5rem' }} />
+                CODE
+              </Box>
+            </Grid>
+
+            <FeatureList whichProject="Eng" />
           </Grid>
-          <Box
-            sx={{
-              display: 'block',
-              width: '100%',
-              // bgcolor: 'red',
-              textAlign: 'center',
-              fontSize: '0.8rem',
-              mb: '2rem',
-              color: '#000033',
-            }}
-          >
-            {'// '}Slow loading might occur due to Heroku's cloud services
-            deploying the server to the free dyno.
-          </Box>
-
-          <FeatureList whichProject={`Mem`} />
         </Grid>
-
-        <Grid
-          item
-          xs={12}
-          sx={{
-            textShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
-          }}
-        >
-          <Typography variant="h3">02.</Typography>
-          <Typography variant="h4" sx={{ mb: '3rem' }}>
-            Learn English with Dictionary | Frontend
-          </Typography>
-          <Box
-            sx={{
-              display: 'block',
-              position: 'relative',
-              margin: 'auto',
-              maxWidth: '700px',
-              borderRadius: '1rem',
-              mb: '3rem',
-            }}
-          >
-            <Box
-              className="preview"
-              component={'img'}
-              src={english_preview}
-              sx={{
-                display: 'block',
-                width: '100%',
-                borderRadius: '1rem',
-                boxShadow: ' 6px 6px 10px #898989,   -6px -6px 10px #fcfcfc',
-                border: ' 5px solid #CDCDCD',
-                transition: 'all .2s ease-in-out',
-              }}
-            ></Box>
-          </Box>
-
-          <Grid
-            item
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              margin: 'auto',
-              mb: '2rem',
-            }}
-          >
-            <Box
-              component={'a'}
-              href="http://www.shareyourmemories.com"
-              sx={demoCodeBtnStyle}
-            >
-              <RemoveRedEyeIcon sx={{ mr: '0.5rem' }} />
-              DEMO
-            </Box>
-
-            <Box sx={{ ...demoCodeBtnStyle, mr: '0rem' }}>
-              <CodeRoundedIcon sx={{ mr: '0.5rem' }} />
-              CODE
-            </Box>
-          </Grid>
-
-          <FeatureList whichProject="Eng" />
-        </Grid>
-      </Grid>
-    </Box>
+      </Box>
+    </>
   );
 };
 

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Typography, Box, Grid, useMediaQuery } from '@mui/material';
 import { default as javascriptLogo } from '../../assets/imgs/JavaScript_logo.svg';
 import { default as htmlLogo } from '../../assets/imgs/HTML5_logo.svg';
 import { default as cssLogo } from '../../assets/imgs/CSS3_logo.svg';
@@ -19,11 +19,7 @@ import { default as netlifyLogo } from '../../assets/imgs/netlify-icon.svg';
 import { default as herokuLogo } from '../../assets/imgs/heroku-icon.svg';
 
 import { default as photoshopLogo } from '../../assets/imgs/Adobe_Photoshop_CC_icon.svg';
-
 import { default as illustratorLogo } from '../../assets/imgs/Adobe_Illustrator_CC_icon.svg';
-
-import { Typography, Box, Grid, useMediaQuery } from '@mui/material';
-import { mainTheme } from '../../themes/mainTheme';
 
 const techIcons = [
   { logo: javascriptLogo, name: 'JavaScript' },
@@ -89,18 +85,14 @@ const Technologies = () => {
             <Box
               component={'img'}
               src={tech.logo}
-              sx={{
-                mb: '1rem',
-                pointerEvents: 'none',
-              }}
+              sx={{ mb: '1rem', pointerEvents: 'none' }}
             ></Box>
             <Typography
               textAlign={'center'}
               sx={{
                 textShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
-
-                justifySelf: 'flex-end',
-                fontSize: isMobile ? '0.5rem' : '1rem',
+                // justifySelf: 'flex-end',
+                fontSize: isMobile ? '0.8rem' : '1rem',
               }}
             >
               {tech.name}

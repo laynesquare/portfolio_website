@@ -4,7 +4,7 @@ import { Tooltip } from '@mui/material';
 const AvatarMan = ({ aboutAvatarMan }) => {
   return (
     <Tooltip
-      title="Yo, let's battle to the music. Show me what you got!"
+      title="Welcome, the following are the technologies with which I have experience."
       placement="top"
       enterDelay={0}
       open={aboutAvatarMan}
