@@ -1,182 +1,51 @@
-import { Typography, Box, Grid, Tooltip, useMediaQuery } from '@mui/material';
-import aboutTop from '../../assets/imgs/aboutTop3.svg';
+import { Typography, Box, Grid, useMediaQuery } from '@mui/material';
 import { mainTheme } from '../../themes/mainTheme';
-import FeatureList from './FeatureList';
-import memory_preview from '../../assets/imgs/preview_share_your_memories.png';
-import english_preview from '../../assets/imgs/preview_learn_english_with_dictionary.png';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import english_preview from '../../assets/imgs/preview_learn_english_with_dictionary.png';
 import CodeRoundedIcon from '@mui/icons-material/CodeRounded';
-
-const demoCodeBtnStyle = {
-  position: 'relative',
-  p: '0.5rem 0.7rem',
-
-  color: mainTheme.palette.primary.main,
-  borderRadius: '1rem',
-  cursor: 'pointer',
-  textDecoration: 'none',
-  transition: 'all .2s ease-in-out',
-  mr: '1rem',
-  boxShadow: ' 4px 4px 8px #898989, -4px -4px 8px #edeaea',
-  display: 'flex',
-  justifyContent: 'center',
-
-  '&:active': {
-    boxShadow: 'inset 4px 4px 8px #898989, inset -4px -4px 8px #edeaea',
-  },
-
-  '&:hover': {
-    boxShadow: '2px 2px 4px #898989, -2px -2px 4px #edeaea',
-    '&:active': {
-      boxShadow: 'inset 2px 2px 4px #898989, inset -2px -2px 4px #edeaea',
-    },
-  },
-};
+import memory_preview from '../../assets/imgs/preview_share_your_memories.png';
+import FeatureList from './FeatureList/FeatureList';
+import separator from '../../assets/imgs/aboutTop3.svg';
 
 const Project = () => {
   const isMobile = useMediaQuery('(max-width:600px)');
 
   return (
     <>
-      <Box
-        sx={{
-          width: '100%',
-          aspectRatio: '3/1',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          backgroundSize: 'cover',
-          backgroundImage: `url('${aboutTop}')`,
-          overflow: 'visible',
-          display: 'flex',
-          alignItems: 'flex-end',
-          justifyContent: 'center',
-          // p: '0 0 12px 0',
-          transform: 'rotate(-5deg) scale(1.1)',
-        }}
-      ></Box>
+      <Box sx={{ ...projectStyle.separator }}></Box>
 
-      <Box
-        id="projectSection"
-        sx={{
-          m: '0rem auto 0rem auto',
-
-          p: '4rem 0rem 2rem 0rem',
-          position: 'relative',
-          width: '100%',
-          maxWidth: '1200px',
-          // bgcolor: 'blue',
-        }}
-      >
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
+      <Box id="projectSection" sx={{ ...projectStyle.outerBox }}>
+        <Box sx={{ ...projectStyle.sectionTitle.inboxDisplay }}>
           <Typography
             variant={isMobile ? 'h5' : 'h3'}
             textAlign={'center'}
-            sx={{
-              textShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
-              color: mainTheme.palette.background.default,
-
-              p: '2rem',
-
-              borderRadius: '50%',
-              display: 'inline-block',
-              borderLeft: '20px solid #CDCDCD',
-              borderRight: '20px solid #CDCDCD',
-
-              boxShadow:
-                ' 5px 5px 9px #898989,  -5px -5px 9px #edeaea, inset 5px 5px 9px #898989, inset -5px -5px 9px #edeaea',
-
-              // mb: '2rem',
-            }}
+            sx={{ ...projectStyle.sectionTitle.shapeAndFont }}
           >
             #Project
           </Typography>
         </Box>
 
         <Grid container justifyContent="center" spacing={5} padding={2}>
-          <Grid
-            item
-            xs={12}
-            sx={{
-              textShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
-            }}
-          >
+          <Grid item xs={12} sx={{ textShadow: shadowGlobal.text }}>
             <Typography variant="h3">01.</Typography>
             <Typography variant="h4" sx={{ mb: '3rem' }}>
               Share your memories | Full stack
             </Typography>
-            <Box
-              sx={{
-                display: 'block',
-                position: 'relative',
-                margin: 'auto',
-                maxWidth: '700px',
-                borderRadius: '1rem',
-                mb: '3rem',
-              }}
-            >
+
+            <Box sx={{ ...projectStyle.preview.outerBox }}>
               <Box
                 className="preview"
                 component={'img'}
                 src={memory_preview}
-                sx={{
-                  display: 'block',
-                  width: '100%',
-                  borderRadius: '1rem',
-                  boxShadow: ' 6px 6px 10px #898989,   -6px -6px 10px #fcfcfc',
-                  border: ' 5px solid #CDCDCD',
-
-                  transition: 'all .2s ease-in-out',
-                }}
+                sx={{ ...projectStyle.preview.img }}
               ></Box>
             </Box>
 
-            <Grid
-              item
-              sx={{
-                display: 'flex',
-                justifyContent: 'center',
-                margin: 'auto',
-                mb: '2rem',
-              }}
-            >
-              <Tooltip
-                title="Lazy login is now offered, if you are meant to just explore a little."
-                placement="left"
-                enterDelay={0}
-              >
-                <Box
-                  component={'a'}
-                  href="http://www.shareyourmemories.com"
-                  sx={demoCodeBtnStyle}
-                >
-                  {/* <Typography> */}
-                  <RemoveRedEyeIcon sx={{ mr: '0.5rem' }} />
-                  DEMO
-                  {/* </Typography> */}
-                </Box>
-              </Tooltip>
-              <Box sx={{ ...demoCodeBtnStyle, mr: '0rem' }}>
-                <CodeRoundedIcon sx={{ mr: '0.5rem' }} />
-                CODE
-              </Box>
+            <Grid item sx={{ ...projectStyle.btnContainer }}>
+              <CallToAction />
             </Grid>
-            <Box
-              sx={{
-                display: 'block',
-                width: '100%',
-                // bgcolor: 'red',
-                textAlign: 'center',
-                fontSize: '0.8rem',
-                mb: '2rem',
-                color: '#000033',
-              }}
-            >
+
+            <Box sx={{ ...projectStyle.slowLoadingExplanation }}>
               {'// '}Slow loading might occur due to Heroku's cloud services
               deploying the server to the free dyno.
             </Box>
@@ -184,64 +53,27 @@ const Project = () => {
             <FeatureList whichProject={`Mem`} />
           </Grid>
 
-          <Grid
-            item
-            xs={12}
-            sx={{
-              textShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
-            }}
-          >
+          {/* --------------------------------------------------------- */}
+          {/* --------------------------------------------------------- */}
+          {/* --------------------------------------------------------- */}
+
+          <Grid item xs={12} sx={{ textShadow: shadowGlobal.text }}>
             <Typography variant="h3">02.</Typography>
             <Typography variant="h4" sx={{ mb: '3rem' }}>
               Learn English with Dictionary | Frontend
             </Typography>
-            <Box
-              sx={{
-                display: 'block',
-                position: 'relative',
-                margin: 'auto',
-                maxWidth: '700px',
-                borderRadius: '1rem',
-                mb: '3rem',
-              }}
-            >
+
+            <Box sx={{ ...projectStyle.preview.outerBox }}>
               <Box
                 className="preview"
                 component={'img'}
                 src={english_preview}
-                sx={{
-                  display: 'block',
-                  width: '100%',
-                  borderRadius: '1rem',
-                  boxShadow: ' 6px 6px 10px #898989,   -6px -6px 10px #fcfcfc',
-                  border: ' 5px solid #CDCDCD',
-                  transition: 'all .2s ease-in-out',
-                }}
+                sx={{ ...projectStyle.preview.img }}
               ></Box>
             </Box>
 
-            <Grid
-              item
-              sx={{
-                display: 'flex',
-                justifyContent: 'center',
-                margin: 'auto',
-                mb: '2rem',
-              }}
-            >
-              <Box
-                component={'a'}
-                href="http://www.shareyourmemories.com"
-                sx={demoCodeBtnStyle}
-              >
-                <RemoveRedEyeIcon sx={{ mr: '0.5rem' }} />
-                DEMO
-              </Box>
-
-              <Box sx={{ ...demoCodeBtnStyle, mr: '0rem' }}>
-                <CodeRoundedIcon sx={{ mr: '0.5rem' }} />
-                CODE
-              </Box>
+            <Grid item sx={{ ...projectStyle.btnContainer }}>
+              <CallToAction />
             </Grid>
 
             <FeatureList whichProject="Eng" />
@@ -250,6 +82,133 @@ const Project = () => {
       </Box>
     </>
   );
+};
+
+const CallToAction = ({ demoLink, codeLink }) => (
+  <>
+    <Box component={'a'} href={demoLink} sx={demoCodeBtnStyle}>
+      <RemoveRedEyeIcon sx={{ mr: '0.5rem' }} />
+      DEMO
+    </Box>
+    <Box
+      component={'a'}
+      href={codeLink}
+      sx={{ ...demoCodeBtnStyle, mr: '0rem' }}
+    >
+      <CodeRoundedIcon sx={{ mr: '0.5rem' }} />
+      CODE
+    </Box>
+  </>
+);
+
+const shadowGlobal = {
+  boxInset: 'inset 2px 2px 4px #898989, inset -2px -2px 4px #edeaea',
+  imgBox: '6px 6px 10px #898989, -6px -6px 10px #fcfcfc',
+  text: '1px 1px 2px #898989, -1px -1px 2px #f7f4f4',
+  box: '2px 2px 4px #898989, -2px -2px 4px #edeaea',
+  titleBox:
+    '5px 5px 9px #898989,  -5px -5px 9px #edeaea, inset 5px 5px 9px #898989, inset -5px -5px 9px #edeaea',
+};
+
+const demoCodeBtnStyle = {
+  justifyContent: 'center',
+  textDecoration: 'none',
+  borderRadius: '1rem',
+  transition: 'all .2s ease-in-out',
+  boxShadow: ' 4px 4px 8px #898989, -4px -4px 8px #edeaea',
+  position: 'relative',
+  display: 'flex',
+  cursor: 'pointer',
+  color: mainTheme.palette.primary.main,
+  mr: '1rem',
+  p: '0.5rem 0.7rem',
+
+  '&:active': {
+    boxShadow: shadowGlobal.boxInset,
+  },
+  '&:hover': {
+    boxShadow: shadowGlobal.box,
+
+    '&:active': {
+      boxShadow: shadowGlobal.boxInset,
+    },
+  },
+};
+
+const projectStyle = {
+  separator: {
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundImage: `url('${separator}')`,
+    backgroundSize: 'cover',
+    aspectRatio: '3/1',
+    transform: 'rotate(5deg) scale(1.1)',
+    width: '100%',
+  },
+
+  outerBox: {
+    position: 'relative',
+    maxWidth: '1200px',
+    width: '100%',
+    p: '4rem 0rem 2rem 0rem',
+    m: '0rem auto 0rem auto',
+  },
+
+  sectionTitle: {
+    inboxDisplay: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      display: 'flex',
+    },
+
+    shapeAndFont: {
+      borderRadius: '50%',
+      borderRight: '20px solid #CDCDCD',
+      textShadow: shadowGlobal.text,
+      borderLeft: '20px solid #CDCDCD',
+      boxShadow: shadowGlobal.titleBox,
+      display: 'inline-block',
+      color: mainTheme.palette.background.default,
+      mb: '2rem',
+      p: '2rem',
+    },
+  },
+
+  preview: {
+    outerBox: {
+      borderRadius: '1rem',
+      position: 'relative',
+      maxWidth: '700px',
+      display: 'block',
+      margin: 'auto',
+      mb: '3rem',
+    },
+
+    img: {
+      borderRadius: '1rem',
+      transition: 'all .2s ease-in-out',
+      boxShadow: shadowGlobal.imgBox,
+      display: 'block',
+      border: ' 5px solid #CDCDCD',
+      width: '100%',
+    },
+  },
+
+  btnContainer: {
+    justifyContent: 'center',
+    display: 'flex',
+    margin: 'auto',
+    mb: '2rem',
+  },
+
+  slowLoadingExplanation: {
+    textAlign: 'center',
+    fontSize: '0.8rem',
+    display: 'block',
+    color: '#000033',
+    width: '100%',
+    mb: '2rem',
+  },
 };
 
 export default Project;

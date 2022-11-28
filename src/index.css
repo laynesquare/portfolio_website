@@ -15,7 +15,6 @@ body {
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
-
 }
 
 #carrier_arm1 {
@@ -89,9 +88,9 @@ html {
   transform-origin: top;
 }
 
-/* .logo_animation {
+.logo_animation {
   animation: logo_animation 10s infinite linear;
-} */
+}
 
 ::-webkit-scrollbar {
   max-width: 5px;
@@ -105,7 +104,6 @@ html {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #123b38;
-  /* box-shadow:  2px 2px 4px #898989,  -2px -2px 4px #edeaea; */
 }
 
 /* Handle on hover */
@@ -160,23 +158,19 @@ html {
 @keyframes logo_animation {
   0% {
     transform: rotate(0deg);
-    /* transform-origin: top right; */
   }
 
   100% {
     transform: rotate(359deg);
-    /* transform-origin: top right; */
   }
 }
 
 @keyframes contentSurfacing {
   0% {
     opacity: 0;
-    /* transform: translate(0, -100px); */
   }
 
   100% {
-    /* transform: translate(0, 0px); */
     opacity: 100%;
   }
 }

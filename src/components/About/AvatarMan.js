@@ -15,7 +15,6 @@ const AvatarMan = ({ aboutAvatarMan }) => {
         height="194"
         viewBox="0 0 194 194"
         xmlns="http://www.w3.org/2000/svg"
-        // shapeRendering="geometricPrecision"
       >
         <g id="Frame 4 1">
           <g id="Frame 1" filter="url(#filter0_i_1_2)">
