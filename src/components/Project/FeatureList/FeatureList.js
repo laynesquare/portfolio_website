@@ -7,29 +7,26 @@ import {
   Avatar,
   List,
 } from '@mui/material';
-import { textForEngProject, textForMemProject } from './ProjectListText';
+import { textEngProject, textMemProject } from './ProjectListText';
 import TechStackByProject from './TechStackByProject';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
-const FeatureList = ({ whichProject }) => {
+const FeatureList = ({ type }) => {
   const isMobile = useMediaQuery('(max-width:600px)');
+
   return (
     <List sx={{ width: '100%' }}>
-      <ListItem alignItems="flex-start" sx={{}}>
+      <ListItem alignItems="flex-start">
         {!isMobile && itemBulletPoint}
         <ListItemText
           primary={<Chapter chapter={'Overview'} />}
           secondary={
-            whichProject === 'Mem'
-              ? detailed(textForMemProject, 'overview')
-              : detailed(textForEngProject, 'overview')
+            type === 'Mem'
+              ? detailed(textMemProject, 'overview')
+              : detailed(textEngProject, 'overview')
           }
         />
       </ListItem>
-
-      {/* --------------------------------------------------------- */}
-      {/* --------------------------------------------------------- */}
-      {/* --------------------------------------------------------- */}
 
       <ListItem alignItems="flex-start" sx={{ mb: '1rem' }}>
         {!isMobile && itemBulletPoint}
@@ -39,24 +36,20 @@ const FeatureList = ({ whichProject }) => {
         />
       </ListItem>
 
-      {whichProject === 'Mem' ? (
-        <TechStackByProject entry={textForMemProject} />
+      {type === 'Mem' ? (
+        <TechStackByProject entry={textMemProject} />
       ) : (
-        <TechStackByProject entry={textForEngProject} />
+        <TechStackByProject entry={textEngProject} />
       )}
 
-      {/* ---------------------------------------------------------- */}
-      {/* ---------------------------------------------------------- */}
-      {/* ---------------------------------------------------------- */}
-
-      <ListItem alignItems="flex-start" sx={{}}>
+      <ListItem alignItems="flex-start">
         {!isMobile && itemBulletPoint}
         <ListItemText
           primary={<Chapter chapter={'Workings Outline'} />}
           secondary={
-            whichProject === 'Mem'
-              ? detailed(textForMemProject, 'workingsOutline')
-              : detailed(textForEngProject, 'workingsOutline')
+            type === 'Mem'
+              ? detailed(textMemProject, 'workingsOutline')
+              : detailed(textEngProject, 'workingsOutline')
           }
         />
       </ListItem>

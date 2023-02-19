@@ -5,25 +5,14 @@ import { Box, Grid } from '@mui/material';
 import { mainTheme } from '../../themes/mainTheme';
 
 const Hero = () => {
+  const [spansSlow, spansFast] = [useRef([]), useRef([])];
   const [windowDimenion, detectHW] = useState({
     winWidth: window.innerWidth,
     winHeight: window.innerHeight,
   });
 
-  const spansSlow = useRef([]);
-  const spansFast = useRef([]);
-
   const detectSize = () =>
-    detectHW({
-      winWidth: window.innerWidth,
-      winHeight: window.innerHeight,
-    });
-
-  useEffect(() => {
-    window.addEventListener('resize', detectSize);
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('resize', detectSize);
-  }, [windowDimenion]);
+    detectHW({ winWidth: window.innerWidth, winHeight: window.innerHeight });
 
   const handleMouseMove = (e) => {
     let normalizedPosition = e.pageX / (windowDimenion.winWidth / 2) - 1;
@@ -33,25 +22,29 @@ const Hero = () => {
     spansSlow.current.forEach(
       (span, index) => (span.style.transform = `translate(${speedSlow}px )`)
     );
-
     spansFast.current.forEach(
       (span, index) => (span.style.transform = `translate(${speedFast}px )`)
     );
   };
 
+  useEffect(() => {
+    window.addEventListener('resize', detectSize);
+    window.addEventListener('mousemove', handleMouseMove);
+  }, [windowDimenion]);
+
   return (
-    <Box id="homeSection" className="hero-bg" sx={{ ...style.mostOuterBox }}>
-      <Box sx={{ ...style.logoBox }}>
+    <Box id="homeSection" className="hero-bg" sx={style.mostOuterBox}>
+      <Box sx={style.logoBox}>
         <Box
           component={'img'}
           className="logo_animation"
           src={officialLogo}
           alt="logo"
-          sx={{ ...style.logoBox.logoImg }}
+          sx={style.logoBox.logoImg}
         ></Box>
       </Box>
 
-      <Box sx={{ ...style.bannerBox }}>
+      <Box sx={style.bannerBox}>
         <DisplayPerLine
           refernceElement={[0, 1]}
           speed={spansFast}
@@ -72,18 +65,18 @@ const Hero = () => {
         />
       </Box>
 
-      <Grid container sx={{ ...style.linkShortcutBox }}>
+      <Grid container sx={style.linkShortcutBox}>
         <Grid
           component={'img'}
           item
           src={gitIcon}
-          sx={{ ...style.linkShortcutBox.gitIcon }}
+          sx={style.linkShortcutBox.gitIcon}
         ></Grid>
         <Grid
           component={'a'}
           item
           href="mailto:laynechensquare@gmail.com"
-          sx={{ ...style.linkShortcutBox.mail }}
+          sx={style.linkShortcutBox.mail}
         >
           laynechensquare@gmail.com
         </Grid>
@@ -102,7 +95,7 @@ const DisplayPerLine = ({ text, speed, refernceElement, layer }) => {
             <Box
               component={'span'}
               ref={(el) => (speed.current[refernceElement[0]] = el)}
-              sx={{ ...style.leftSpan(layer) }}
+              sx={style.leftSpan(layer)}
             >
               {text}
             </Box>
@@ -115,7 +108,7 @@ const DisplayPerLine = ({ text, speed, refernceElement, layer }) => {
             <Box
               component={'span'}
               ref={(el) => (speed.current[refernceElement[1]] = el)}
-              sx={{ ...style.rightSpan(layer) }}
+              sx={style.rightSpan(layer)}
             >
               {text}
             </Box>

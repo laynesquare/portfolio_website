@@ -51,7 +51,7 @@ const Project = () => {
               a free hosting service.
             </Alert>
 
-            <FeatureList whichProject={`Mem`} />
+            <FeatureList type={`Mem`} />
           </Grid>
 
           <Grid item xs={12} sx={{ textShadow: shadowGlobal.text }}>
@@ -78,7 +78,7 @@ const Project = () => {
               a free hosting service.
             </Alert>
 
-            <FeatureList whichProject="Eng" />
+            <FeatureList type="Eng" />
           </Grid>
         </Grid>
       </Box>
