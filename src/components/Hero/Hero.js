@@ -22,7 +22,6 @@ const Hero = () => {
   useEffect(() => {
     window.addEventListener('resize', detectSize);
     window.addEventListener('mousemove', handleMouseMove);
-    console.log(spansSlow, spansFast);
     return () => window.removeEventListener('resize', detectSize);
   }, [windowDimenion]);
 
@@ -103,13 +102,7 @@ const DisplayPerLine = ({ text, speed, refernceElement, layer }) => {
             <Box
               component={'span'}
               ref={(el) => (speed.current[refernceElement[0]] = el)}
-              sx={{
-                ...style.leftSpan,
-                color:
-                  layer % 2 === 0
-                    ? mainTheme.palette.background.default
-                    : mainTheme.palette.primary.light,
-              }}
+              sx={{ ...style.leftSpan(layer) }}
             >
               {text}
             </Box>
@@ -122,13 +115,7 @@ const DisplayPerLine = ({ text, speed, refernceElement, layer }) => {
             <Box
               component={'span'}
               ref={(el) => (speed.current[refernceElement[1]] = el)}
-              sx={{
-                ...style.rightSpan,
-                color:
-                  layer % 2 === 0
-                    ? mainTheme.palette.primary.light
-                    : mainTheme.palette.background.default,
-              }}
+              sx={{ ...style.rightSpan(layer) }}
             >
               {text}
             </Box>
@@ -214,12 +201,15 @@ const style = {
     width: '100vw',
   },
 
-  leftSpan: {
+  leftSpan: (layer) => ({
     transition: 'ease-out .6s',
     lineHeight: '.9',
     display: 'inline-block',
-    color: mainTheme.palette.primary.light,
-  },
+    color:
+      layer % 2 === 0
+        ? mainTheme.palette.background.default
+        : mainTheme.palette.primary.light,
+  }),
 
   right: {
     overflow: 'hidden',
@@ -233,12 +223,15 @@ const style = {
     width: '100vw',
   },
 
-  rightSpan: {
+  rightSpan: (layer) => ({
     transition: 'ease-out .6s',
     lineHeight: '.8',
     display: 'inline-block',
-    color: mainTheme.palette.background.default,
-  },
+    color:
+      layer % 2 === 0
+        ? mainTheme.palette.primary.light
+        : mainTheme.palette.background.default,
+  }),
 };
 
 export default Hero;

@@ -13,11 +13,11 @@ const Contact = () => {
     <>
       <Box sx={{ ...contactStyle.separator }}></Box>
       <Box id="contactSection" sx={{ ...contactStyle.outerBox }}>
-        <Box sx={{ ...contactStyle.contactTitle.shapeAndFont }}>
+        <Box sx={{ ...contactStyle.contactTitle.inboxDisplay }}>
           <Typography
             variant={isMobile ? 'h5' : 'h3'}
             textAlign={'center'}
-            sx={{ ...contactStyle.contactTitle.sectionTitle }}
+            sx={{ ...contactStyle.contactTitle.shapeAndFont }}
           >
             #Contact
           </Typography>
@@ -51,6 +51,8 @@ const shadowGlobal = {
   boxOutsetFull: '4px 4px 8px #898989, -4px -4px 8px #edeaea',
   boxInsetFull: 'inset 4px 4px 8px #898989, inset -4px -4px 8px #edeaea',
   text: '1px 1px 2px #898989, -1px -1px 2px #f7f4f4',
+  titleBox:
+    '5px 5px 9px #898989,  -5px -5px 9px #edeaea, inset 5px 5px 9px #898989, inset -5px -5px 9px #edeaea',
 };
 
 const contactStyle = {
@@ -72,22 +74,23 @@ const contactStyle = {
   },
 
   contactTitle: {
-    sectionTitle: {
+    inboxDisplay: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      textAlign: 'center',
+      display: 'flex',
+    },
+
+    shapeAndFont: {
       borderRadius: '50%',
-      textShadow: shadowGlobal.text,
       borderRight: '20px solid #CDCDCD',
+      textShadow: shadowGlobal.text,
       borderLeft: '20px solid #CDCDCD',
       boxShadow: shadowGlobal.titleBox,
       display: 'inline-block',
       color: mainTheme.palette.background.default,
       mb: '2rem',
       p: '2rem',
-    },
-
-    shapeAndFont: {
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
     },
   },
 

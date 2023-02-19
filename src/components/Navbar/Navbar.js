@@ -2,288 +2,191 @@ import { AppBar, Box, Typography, Grid, useMediaQuery } from '@mui/material';
 import { useState, useRef, useEffect } from 'react';
 import { mainTheme } from '../../themes/mainTheme';
 
-const navItemStyle = {
-  textShadow: '2px 2px 3px rgba(255,255,255,0.5)',
-  backgroundColor: '#7C7C7C',
-  backgroundClip: 'text',
-  textDecoration: 'none',
-  textAlign: 'center',
-  color: 'transparent',
-  ':hover': {
-    color: mainTheme.palette.background.default,
-    textShadow: ' 0.5px 0.5px 1px #898989,   -0.5px -0.5px 1px #f7f4f4',
-  },
-};
-
 const Navbar = () => {
   const isMobile = useMediaQuery('(max-width:600px)');
+  const [navOnScroll, preScrollpos] = [useRef([]), useRef(0)];
+  const [openDropdown, setOpenDropdown] = useState(false);
 
-  const navBarOnScroll = useRef(null);
-  const menuForMobile = useRef(null);
+  const handleScroll = () => {
+    const scrollDown = preScrollpos.current > window.scrollY;
+    const navHeight = `${navOnScroll.current.offsetHeight * -1.3}px`;
+    navOnScroll.current.style.top = scrollDown ? 0 : navHeight;
+    preScrollpos.current = window.scrollY;
+    setOpenDropdown(false);
+  };
 
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [prevScrollpos, setPrevScrollpos] = useState(0);
+  const handleDropdown = (e) => {
+    const [cursorY, innerHeight] = [e.clientY, window.innerHeight];
+    if (cursorY > innerHeight / 2) setOpenDropdown(false);
+  };
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      window.addEventListener('scroll', handleSroll);
-      return () => window.removeEventListener('scroll', handleSroll);
-    }
-  }, [prevScrollpos]);
-
-  useEffect(() => {
-    window.addEventListener('click', handleClickOutsideOfMobileMenu);
-
-    return () =>
-      window.removeEventListener('click', handleClickOutsideOfMobileMenu);
-  });
-
-  const handleClickOutsideOfMobileMenu = (e) => {
-    if (!isMobileMenuOpen) return;
-
-    if (e.clientY > 300) {
-      handleMobileMenu();
-    }
-  };
-
-  const handleSroll = (e) => {
-    if (prevScrollpos > window.scrollY) {
-      navBarOnScroll.current.style.top = 0;
-    } else if (prevScrollpos < window.scrollY) {
-      navBarOnScroll.current.style.top = '-170px';
-    }
-    setPrevScrollpos(window.scrollY);
-
-    if (isMobileMenuOpen) handleMobileMenu();
-  };
-
-  const handleMobileMenu = () => {
-    if (isMobileMenuOpen) {
-      menuForMobile.current.style.opacity = '0';
-    } else {
-      menuForMobile.current.style.opacity = '1';
-    }
-
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('click', handleDropdown);
+  }, []);
 
   if (isMobile)
     return (
-      <Box>
-        <AppBar>
-          <Box
-            ref={menuForMobile}
-            sx={{
-              position: 'absolute',
-              width: '100%',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'flex-end',
-              transition: 'all 0.2s ease-in-out',
-              background:
-                'linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.2) ,rgba(0,0,0,0))',
-              opacity: '0',
-            }}
-          >
-            <Box
-              sx={{
-                // bgcolor: 'red',
-                // p: '1rem',
-                bgcolor: mainTheme.palette.background.default,
-                borderRadius: '3rem',
-                p: '0.5rem 1.5rem',
-                width: '100%',
-                m: '4rem 1rem 6rem 1rem',
-                display: 'flex',
-                flexWrap: 'wrap',
-                justifyContent: 'space-around',
-                border: '3px solid #CDCDCD',
-                boxShadow:
-                  'inset 5px 5px 9px #898989, inset -5px -5px 9px #edeaea',
-              }}
-            >
-              <Grid
-                item
-                component={'a'}
-                href={'#homeSection'}
-                sx={{ ...navItemStyle, p: '0.5rem' }}
-              >
-                #Home
-              </Grid>
-              <Grid
-                component={'a'}
-                href={'#aboutSection'}
-                item
-                sx={{
-                  ...navItemStyle,
-                  p: '0.5rem',
-                }}
-              >
-                #About
-              </Grid>
-              <Grid
-                component={'a'}
-                href={'#projectSection'}
-                item
-                sx={{
-                  ...navItemStyle,
-                  p: '0.5rem',
-                }}
-              >
-                #Project
-              </Grid>
-              <Grid
-                component={'a'}
-                href={'#contactSection'}
-                item
-                sx={{
-                  ...navItemStyle,
-                  p: '0.5rem',
-                }}
-              >
-                #Contact
-              </Grid>
-              <Grid
-                item
-                sx={{
-                  ...navItemStyle,
-                  p: '0.5rem',
-                }}
-              >
-                #Resume
-              </Grid>
-            </Box>
+      <>
+        <Box sx={style.dropdownArea(openDropdown)}>
+          <Box sx={style.dropdownItemCtn}>
+            <Items isMobile={isMobile} />
           </Box>
-          <Grid
-            ref={navBarOnScroll}
-            container
-            sx={{
-              display: 'flex',
-              flexDirection: 'row',
-              bgcolor: mainTheme.palette.background.default,
-              alignItems: 'center',
-              boxShadow: '0px 0px 3px 3px rgba(0,0,0,0.2)',
-              fontSize: isMobile ? '0.1rem' : '1rem',
-              flexWrap: 'nowrap',
-              p: '0.5rem',
-              justifyContent: 'space-around',
-              position: 'fixed',
-              zIndex: '10',
-              transition: 'all 0.5s ease-in-out',
-              top: '0px',
-            }}
+        </Box>
+        <AppBar sx={style.appbarMobile} ref={navOnScroll}>
+          <Box
+            sx={style.dropdownBtn(openDropdown)}
+            onClick={() => setOpenDropdown(!openDropdown)}
           >
-            <Box
-              onClick={handleMobileMenu}
-              sx={{
-                // backgroundColor: 'green',
-                borderRadius: '50%',
-                height: '30px',
-                width: '30px',
-                boxShadow: isMobileMenuOpen
-                  ? ' inset 2px 2px 4px #898989, inset -2px -2px 4px #edeaea'
-                  : ' 4px 4px 8px #898989, -4px -4px 8px #edeaea',
-
-                textShadow: ' 1px 1px 2px #898989,   -1px -1px 2px #f7f4f4',
-                color: mainTheme.palette.background.default,
-                background: 'linear-gradient(145deg, #dbdbdb, #b9b9b9)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-              }}
-            >
-              <Typography
-                sx={{
-                  textAlign: 'center',
-                  fontSize: '1.5rem',
-                  backgroundColor: '#7C7C7C',
-                  color: 'transparent',
-                  textShadow: '2px 2px 3px rgba(255,255,255,0.5)',
-                  backgroundClip: 'text',
-                }}
-              >
-                ≡
-              </Typography>
-            </Box>
-          </Grid>
+            <Typography sx={style.dropdownIcon}>≡</Typography>
+          </Box>
         </AppBar>
-      </Box>
+      </>
     );
 
   return (
-    <Box>
-      <AppBar>
-        <Grid
-          ref={navBarOnScroll}
-          container
-          sx={{
-            display: 'flex',
-            flexDirection: 'row',
-            bgcolor: mainTheme.palette.background.default,
-            alignItems: 'center',
-            boxShadow: '0px 0px 3px 3px rgba(0,0,0,0.2)',
-            fontSize: isMobile ? '0.1rem' : '1rem',
-            // flexWrap: 'nowrap',
-            p: '0.5rem',
-            justifyContent: 'space-around',
-            // height: '2.5rem',
-            position: 'fixed',
-            zIndex: '1',
-            transition: 'all 0.5s ease-in-out',
-            top: '0px',
-          }}
-        >
-          <Grid
-            item
-            component={'a'}
-            href={'#homeSection'}
-            sx={{ ...navItemStyle }}
-          >
-            #Home
-          </Grid>
-          <Grid
-            item
-            component={'a'}
-            href={'#aboutSection'}
-            sx={{
-              ...navItemStyle,
-            }}
-          >
-            #About
-          </Grid>
-          <Grid
-            component={'a'}
-            href={'#projectSection'}
-            item
-            sx={{
-              ...navItemStyle,
-            }}
-          >
-            #Project
-          </Grid>
-          <Grid
-            component={'a'}
-            href={'#contactSection'}
-            item
-            sx={{
-              ...navItemStyle,
-            }}
-          >
-            #Contact
-          </Grid>
-          <Grid
-            item
-            sx={{
-              ...navItemStyle,
-            }}
-          >
-            #Resume
-          </Grid>
-        </Grid>
-      </AppBar>
-    </Box>
+    <AppBar ref={navOnScroll} sx={style.appbar}>
+      <Items isMobile={isMobile} />
+    </AppBar>
   );
+};
+
+const Items = (isMobile) => (
+  <>
+    <Grid
+      item
+      component={'a'}
+      href={'#homeSection'}
+      sx={style.navItem(isMobile)}
+    >
+      #Home
+    </Grid>
+    <Grid
+      item
+      component={'a'}
+      href={'#aboutSection'}
+      sx={style.navItem(isMobile)}
+    >
+      #About
+    </Grid>
+    <Grid
+      component={'a'}
+      href={'#projectSection'}
+      item
+      sx={style.navItem(isMobile)}
+    >
+      #Project
+    </Grid>
+    <Grid
+      component={'a'}
+      href={'#contactSection'}
+      item
+      sx={style.navItem(isMobile)}
+    >
+      #Contact
+    </Grid>
+    <Grid item sx={style.navItem(isMobile)}>
+      #Resume
+    </Grid>
+  </>
+);
+
+const style = {
+  appbar: {
+    justifyContent: 'space-around',
+    flexDirection: 'row',
+    transition: 'all 0.5s ease-in-out',
+    alignItems: 'center',
+    boxShadow: '0px 0px 3px 3px rgba(0,0,0,0.2)',
+    position: 'fixed',
+    bgcolor: mainTheme.palette.background.default,
+    display: 'flex',
+    zIndex: '2000',
+    top: '0px',
+  },
+
+  appbarMobile: {
+    // pending
+    justifyContent: 'space-around',
+    flexDirection: 'row',
+    alignItems: 'center',
+    transition: 'all 0.5s ease-in-out',
+    boxShadow: '0px 0px 3px 3px rgba(0,0,0,0.2)',
+    fontSize: '0.1rem',
+    position: 'fixed',
+    flexWrap: 'nowrap',
+    bgcolor: mainTheme.palette.background.default,
+    display: 'flex',
+    zIndex: '2100',
+    top: '0px',
+    p: '0.5rem',
+  },
+
+  dropdownBtn: (openDropdown) => ({
+    justifyContent: 'center',
+    borderRadius: '50%',
+    background: 'linear-gradient(145deg, #dbdbdb, #b9b9b9)',
+    textShadow: ' 1px 1px 2px #898989, -1px -1px 2px #f7f4f4',
+    alignItems: 'center',
+    display: 'flex',
+    cursor: 'pointer',
+    height: '30px',
+    width: '30px',
+    color: mainTheme.palette.background.default,
+    boxShadow: openDropdown
+      ? ' inset 2px 2px 4px #898989, inset -2px -2px 4px #edeaea'
+      : ' 4px 4px 8px #898989, -4px -4px 8px #edeaea',
+  }),
+
+  dropdownIcon: {
+    backgroundColor: '#7C7C7C',
+    backgroundClip: 'text',
+    textShadow: '2px 2px 3px rgba(255,255,255,0.5)',
+    userSelect: 'none',
+    textAlign: 'center',
+    fontSize: '1.5rem',
+    color: 'transparent',
+  },
+
+  dropdownArea: (openDropdown) => ({
+    justifyContent: 'center',
+    transition: 'all 0.3s ease-in-out',
+    alignItems: 'flex-end',
+    position: 'fixed',
+    display: 'flex',
+    zIndex: '2000',
+    opacity: openDropdown ? '1' : '0',
+    transform: openDropdown ? 'translateY(0)' : 'translateY(-100%)',
+    background:
+      'linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.2) ,rgba(0,0,0,0))',
+  }),
+
+  dropdownItemCtn: {
+    position: 'relative',
+    justifyContent: 'space-around',
+    borderRadius: '3rem',
+    boxShadow: 'inset 5px 5px 9px #898989, inset -5px -5px 9px #edeaea',
+    flexWrap: 'wrap',
+    bgcolor: mainTheme.palette.background.default,
+    display: 'flex',
+    border: '3px solid #CDCDCD',
+    p: '0.5rem 1.5rem',
+    m: '4rem 1rem 6rem 1rem',
+  },
+
+  navItem: (isMobile) => ({
+    backgroundColor: '#7C7C7C',
+    backgroundClip: 'text',
+    textDecoration: 'none',
+    textShadow: '2px 2px 3px rgba(255,255,255,0.5)',
+    textAlign: 'center',
+    color: 'transparent',
+    p: isMobile && '0.5rem',
+    ':hover': {
+      textShadow: '0.5px 0.5px 1px #898989, -0.5px -0.5px 1px #f7f4f4',
+      color: mainTheme.palette.background.default,
+    },
+  }),
 };
 
 export default Navbar;
