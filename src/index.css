@@ -93,7 +93,7 @@ html {
 }
 
 ::-webkit-scrollbar {
-  max-width: 5px;
+  max-width: 1px;
 }
 
 /* Track */
@@ -110,6 +110,8 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #1f625e;
 }
+
+
 
 @keyframes avatar_body_animation {
   0% {

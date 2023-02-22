@@ -1,6 +1,7 @@
 import { AppBar, Box, Typography, Grid, useMediaQuery } from '@mui/material';
 import { useState, useRef, useEffect } from 'react';
 import { mainTheme } from '../../themes/mainTheme';
+import Resume from '../Resume/Resume';
 
 const Navbar = () => {
   const isMobile = useMediaQuery('(max-width:600px)');
@@ -30,7 +31,7 @@ const Navbar = () => {
       <>
         <Box sx={style.dropdownArea(openDropdown)}>
           <Box sx={style.dropdownItemCtn}>
-            <Items isMobile={isMobile} />
+            <Items preScrollpos={preScrollpos} />
           </Box>
         </Box>
         <AppBar sx={style.appbarMobile} ref={navOnScroll}>
@@ -46,48 +47,26 @@ const Navbar = () => {
 
   return (
     <AppBar ref={navOnScroll} sx={style.appbar}>
-      <Items isMobile={isMobile} />
+      <Items preScrollpos={preScrollpos} />
     </AppBar>
   );
 };
 
-const Items = (isMobile) => (
+const Items = ({ preScrollpos }) => (
   <>
-    <Grid
-      item
-      component={'a'}
-      href={'#homeSection'}
-      sx={style.navItem(isMobile)}
-    >
+    <Grid item component={'a'} href={'#homeSection'} sx={style.navItem}>
       #Home
     </Grid>
-    <Grid
-      item
-      component={'a'}
-      href={'#aboutSection'}
-      sx={style.navItem(isMobile)}
-    >
+    <Grid item component={'a'} href={'#aboutSection'} sx={style.navItem}>
       #About
     </Grid>
-    <Grid
-      component={'a'}
-      href={'#projectSection'}
-      item
-      sx={style.navItem(isMobile)}
-    >
+    <Grid component={'a'} href={'#projectSection'} item sx={style.navItem}>
       #Project
     </Grid>
-    <Grid
-      component={'a'}
-      href={'#contactSection'}
-      item
-      sx={style.navItem(isMobile)}
-    >
+    <Grid component={'a'} href={'#contactSection'} item sx={style.navItem}>
       #Contact
     </Grid>
-    <Grid item sx={style.navItem(isMobile)}>
-      #Resume
-    </Grid>
+    <Resume gridStyle={style.navItem} preScrollpos={preScrollpos} />
   </>
 );
 
@@ -100,13 +79,11 @@ const style = {
     boxShadow: '0px 0px 3px 3px rgba(0,0,0,0.2)',
     position: 'fixed',
     bgcolor: mainTheme.palette.background.default,
-    display: 'flex',
-    zIndex: '2000',
+    zIndex: 1101,
     top: '0px',
   },
 
   appbarMobile: {
-    // pending
     justifyContent: 'space-around',
     flexDirection: 'row',
     alignItems: 'center',
@@ -116,8 +93,7 @@ const style = {
     position: 'fixed',
     flexWrap: 'nowrap',
     bgcolor: mainTheme.palette.background.default,
-    display: 'flex',
-    zIndex: '2100',
+    zIndex: 1101,
     top: '0px',
     p: '0.5rem',
   },
@@ -152,20 +128,20 @@ const style = {
     justifyContent: 'center',
     transition: 'all 0.3s ease-in-out',
     alignItems: 'flex-end',
+    transform: openDropdown ? 'translateY(0)' : 'translateY(-100%)',
     position: 'fixed',
     display: 'flex',
-    zIndex: '2000',
     opacity: openDropdown ? '1' : '0',
-    transform: openDropdown ? 'translateY(0)' : 'translateY(-100%)',
+    zIndex: 1100,
     background:
       'linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.2) ,rgba(0,0,0,0))',
   }),
 
   dropdownItemCtn: {
-    position: 'relative',
     justifyContent: 'space-around',
     borderRadius: '3rem',
     boxShadow: 'inset 5px 5px 9px #898989, inset -5px -5px 9px #edeaea',
+    position: 'relative',
     flexWrap: 'wrap',
     bgcolor: mainTheme.palette.background.default,
     display: 'flex',
@@ -174,19 +150,20 @@ const style = {
     m: '4rem 1rem 6rem 1rem',
   },
 
-  navItem: (isMobile) => ({
+  navItem: {
     backgroundColor: '#7C7C7C',
     backgroundClip: 'text',
     textDecoration: 'none',
     textShadow: '2px 2px 3px rgba(255,255,255,0.5)',
     textAlign: 'center',
+    cursor: 'pointer',
     color: 'transparent',
-    p: isMobile && '0.5rem',
+    p: '0.5rem',
     ':hover': {
       textShadow: '0.5px 0.5px 1px #898989, -0.5px -0.5px 1px #f7f4f4',
       color: mainTheme.palette.background.default,
     },
-  }),
+  },
 };
 
 export default Navbar;

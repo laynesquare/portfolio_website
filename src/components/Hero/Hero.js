@@ -6,16 +6,14 @@ import { mainTheme } from '../../themes/mainTheme';
 
 const Hero = () => {
   const [spansSlow, spansFast] = [useRef([]), useRef([])];
-  const [windowDimenion, detectHW] = useState({
-    winWidth: window.innerWidth,
-    winHeight: window.innerHeight,
-  });
+  const winWidth = useRef(window.innerWidth);
 
-  const detectSize = () =>
-    detectHW({ winWidth: window.innerWidth, winHeight: window.innerHeight });
+  const detectSize = () => {
+    winWidth.current = window.innerWidth;
+  };
 
   const handleMouseMove = (e) => {
-    let normalizedPosition = e.pageX / (windowDimenion.winWidth / 2) - 1;
+    let normalizedPosition = e.pageX / (winWidth.current / 2) - 1;
     let speedSlow = 100 * normalizedPosition;
     let speedFast = 200 * normalizedPosition;
 
@@ -30,7 +28,7 @@ const Hero = () => {
   useEffect(() => {
     window.addEventListener('resize', detectSize);
     window.addEventListener('mousemove', handleMouseMove);
-  }, [windowDimenion]);
+  }, []);
 
   return (
     <Box id="homeSection" className="hero-bg" sx={style.mostOuterBox}>
