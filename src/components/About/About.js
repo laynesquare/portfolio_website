@@ -36,11 +36,11 @@ const About = () => {
           </Box>
           <Box sx={{ ...aboutStyle.avatarAndIntro.textBox }}>
             <Typography sx={{ ...aboutStyle.avatarAndIntro.textBox.text }}>
-              My name is Layne Chen, a self-taught front-end web developer;
-              during the vocational course of English technical writing for FTTx
-              networking components, I came across HTML / CSS / Javascript
-              technologies, and an interest in software development is thus
-              sparked.
+              A self-taught front-end web developer; during the vocational
+              course of English technical writing for FTTx networking
+              components, I came across HTML/CSS/Javascript technologies, which
+              sparked my interest in software development and propelled me to
+              further pursue a career as a web developer.
             </Typography>
           </Box>
         </Box>

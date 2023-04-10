@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <Box sx={style.outerBox}>
       <Typography variant="caption" sx={style.text}>
-        © 2022 Layne Chen. All Rights Reserved.
+        © 2023 Layne Chen. All Rights Reserved.
       </Typography>
     </Box>
   );
