@@ -66,7 +66,7 @@ const aboutStyle = {
     backgroundImage: `url('${separator}')`,
     backgroundSize: 'cover',
     aspectRatio: '3/1',
-    transform: 'rotate(5deg) scale(1.1)',
+    transform: 'rotate(0deg) scale(1.04)',
     width: '100%',
   },
 

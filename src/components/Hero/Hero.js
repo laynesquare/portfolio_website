@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { default as officialLogo } from '../../assets/imgs/official_logo.svg';
 import { default as gitIcon } from '../../assets/imgs/github_icon.svg';
 import { Box, Grid } from '@mui/material';
@@ -65,11 +65,13 @@ const Hero = () => {
 
       <Grid container sx={style.linkShortcutBox}>
         <Grid
-          component={'img'}
           item
           src={gitIcon}
+          component={'img'}
           sx={style.linkShortcutBox.gitIcon}
+          onClick={() => window.open('https://github.com/laynesquare')}
         ></Grid>
+
         <Grid
           component={'a'}
           item
@@ -164,6 +166,7 @@ const style = {
       borderRadius: '50%',
       boxShadow: '2px 2px 4px #898989, -2px -2px 4px #edeaea',
       border: '2px solid #CDCDCD',
+      cursor: 'pointer',
       width: '2rem',
       mr: '1rem',
     },
